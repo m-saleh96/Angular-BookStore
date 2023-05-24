@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component  } from '@angular/core';
 import { BooksService } from '../services/books.service';
 
@@ -10,14 +9,8 @@ import { BooksService } from '../services/books.service';
 export class BookListComponent {
 
   books:any[]=[]
-  constructor(private http:HttpClient , private bookService:BooksService){}
+  constructor(private bookService:BooksService){}
   ngOnInit(){
-    this.bookService.getBook().subscribe((res:any)=>{
-      console.log(res);
-      this.books = res
-      console.log(this.books);
-      
-      
-    })
+    this.bookService.getBook().subscribe((res:any)=>this.books = res)
   }
 }
