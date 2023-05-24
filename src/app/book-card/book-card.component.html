@@ -1,12 +1,12 @@
 <div class="card card-border">
-    <img [src]="book.photo"  class="card-img-top" alt="..." (click)="redirectToBook(book._id)">
+    <img [src]="book?.photo"  class="card-img-top" alt="..." (click)="redirectToBook(book._id)">
     <div class="card-body">
-    <h4 class="card-title text-danger">{{book.name}}</h4>
-    <p class="card-text">{{book.title}}</p>
-    <p class="card-text">{{book.desc}}</p>
+    <h4 class="card-title text-danger">{{book?.name}}</h4>
+    <p class="card-text">{{book?.title}}</p>
+    <p class="card-text">{{book?.desc}}</p>
     </div>
     <div class="card-footer">
-    <a (click)="redirectToBook(book._id)" class="btn btn-primary ">Details</a>
+    <a (click)="redirectToBook(book?._id)" class="btn btn-primary ">Details</a>
     <small class="text-muted"></small>
     </div>
     <div class="vote"></div>
