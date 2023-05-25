@@ -10,6 +10,7 @@ import { BooksService } from '../services/books.service';
 export class BookDetailsComponent {
   id!:number;
   book!:any;
+  paginationLength!:number;
 
   constructor(private route:ActivatedRoute , private bookService:BooksService){}
 

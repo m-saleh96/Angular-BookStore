@@ -3,6 +3,19 @@
 
         <app-book-card [book]="book"></app-book-card>
         
+        
     </div>
-
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li id="box" [ngClass]="{'disabled':page==1,'page-item':true} ">
+          <a class="page-link" (click)="prevPage()">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" (click)="pageNumber(1)">1</a></li>
+        <li class="page-item"><a class="page-link" (click)="pageNumber(2)">2</a></li>
+        <li class="page-item"><a class="page-link"(click)="pageNumber(3)">3</a></li>
+        <li class="page-item">
+          <a class="page-link" (click)="nextPage()">Next</a>
+        </li>
+      </ul>
+    </nav>
 </div>
