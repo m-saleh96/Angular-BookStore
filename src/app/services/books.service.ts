@@ -13,7 +13,7 @@ export class BooksService {
   }
 
   getBookDetails(id:number){
-    return this.http.get('http://127.0.0.1:5000/books/'+id)
+    return this.http.get('http://127.0.0.1:5000/book/'+id)
 
   }
 

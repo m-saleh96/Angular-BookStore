@@ -17,7 +17,7 @@ export class BookDetailsComponent {
   ngOnInit(): void {
     this.route.params.subscribe(params=>this.id=params['id']);
 
-    this.bookService.getBookDetails(this.id).subscribe((res:any)=>this.book=res)
+    this.bookService.getBookDetails(this.id).subscribe((res:any)=>this.book=res.data.book)
     
     
   }
