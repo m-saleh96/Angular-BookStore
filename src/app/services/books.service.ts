@@ -9,7 +9,7 @@ export class BooksService {
   constructor(private http:HttpClient) { }
 
   getBook(num:any){
-    return this.http.get(`http://127.0.0.1:5000/books?pageNumber=${num}`)
+    return this.http.get(`http://127.0.0.1:5000/book?pageNumber=${num}`)
   }
 
   getBookDetails(id:number){

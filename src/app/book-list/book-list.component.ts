@@ -12,21 +12,21 @@ export class BookListComponent {
   page:number =1;
   constructor(private bookService:BooksService){}
   ngOnInit(){
-    this.bookService.getBook(1).subscribe((res:any)=>this.books = res)
+    this.bookService.getBook(1).subscribe((res:any)=>this.books = res.data.books)
   }
 
   pageNumber(number:number){
     this.page = number
-    this.bookService.getBook(number).subscribe((res:any)=>this.books = res) 
+    this.bookService.getBook(number).subscribe((res:any)=>this.books = res.data.books) 
   }
 
   nextPage(){
       this.page ++
       this.bookService.getBook(this.page).subscribe((res:any)=>{
-          if((res.length==0)){
-            this.page --        
+          if((res.data.books.length==0)){
+            this.page --               
           } else {
-            this.books = res
+            this.books = res.data.books
           }           
       })
       
@@ -38,7 +38,7 @@ export class BookListComponent {
           if((this.page==0)){
             this.page ++ 
           } else {
-            this.books = res
+            this.books = res.data.books
           }           
       })
   }
