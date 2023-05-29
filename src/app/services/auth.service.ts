@@ -10,7 +10,17 @@ import { userData } from '../userData';
 export class AuthService {
   currentUsers = new BehaviorSubject(null);
 
-  constructor(private http:HttpClient , private router:Router) { }
+  constructor(private http:HttpClient , private router:Router) {
+
+    if (localStorage.getItem('userData') != null) {
+      let x:any
+      x = localStorage.getItem('userData')  
+      this.currentUsers.next(x);
+     }
+
+   }
+
+
 
   register(registerFormValue:any):Observable<any>
   {
