@@ -16,4 +16,9 @@ export class AuthService {
     return this.http.post('http://127.0.0.1:5000/auth/register' , registerFormValue)
   }
 
+  login(loginFormValue:any):Observable<any>
+  {
+    this.router.navigate(['/home'])
+    return this.http.post('http://127.0.0.1:5000/auth/login' , loginFormValue)
+  }
 }

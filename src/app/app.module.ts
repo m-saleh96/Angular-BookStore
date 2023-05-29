@@ -9,6 +9,7 @@ import { BookCardComponent } from './book-card/book-card.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { ReactiveFormsModule , FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { RegisterComponent } from './register/register.component';
     BookListComponent,
     BookCardComponent,
     BookDetailsComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
