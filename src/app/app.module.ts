@@ -10,6 +10,8 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 import { ReactiveFormsModule , FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { LoginComponent } from './login/login.component';
     BookCardComponent,
     BookDetailsComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent,
+    AdminPanelComponent
   ],
   imports: [
     BrowserModule,

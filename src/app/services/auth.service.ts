@@ -17,7 +17,6 @@ export class AuthService {
       x = localStorage.getItem('userData')  
       this.currentUsers.next(x);
      }
-
    }
 
 
@@ -45,5 +44,5 @@ export class AuthService {
     localStorage.clear() ;
     this.router.navigate(['/login'])
   }
-  
+
 }
