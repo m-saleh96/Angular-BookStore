@@ -33,7 +33,7 @@
               <a class="nav-link" routerLink="login">Login</a>
             </li>
             <li *ngIf="isLogin" class="nav-item">
-              <a class="nav-link">LogOut</a>
+              <a class="nav-link" (click)="logOut()">LogOut</a>
             </li>
             </ul>
         </div>

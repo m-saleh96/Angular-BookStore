@@ -39,4 +39,11 @@ export class AuthService {
     localStorage.setItem('userData' , JSON.stringify(token))
     this.currentUsers.next(token);
   }
+
+  logOut(){
+    this.currentUsers.next(null);
+    localStorage.clear() ;
+    this.router.navigate(['/login'])
+  }
+  
 }

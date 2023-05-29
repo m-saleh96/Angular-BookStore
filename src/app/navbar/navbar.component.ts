@@ -8,7 +8,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class NavbarComponent {
   isLogin:boolean = false;
-  
+
   constructor(private authService:AuthService){
 
     authService.currentUsers.subscribe((data)=>{
@@ -19,4 +19,11 @@ export class NavbarComponent {
       }
     })
   }
+
+
+  logOut(){
+    this.authService.logOut();
+  }
+
+
 }
