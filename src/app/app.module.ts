@@ -7,6 +7,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { BookCardComponent } from './book-card/book-card.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import { ReactiveFormsModule , FormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { BookDetailsComponent } from './book-details/book-details.component';
     NavbarComponent,
     BookListComponent,
     BookCardComponent,
-    BookDetailsComponent
+    BookDetailsComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule , FormsModule ,
     HttpClientModule,
   ],
   providers: [],
