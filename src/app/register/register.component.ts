@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class RegisterComponent {
 
   registerForm:FormGroup = new FormGroup({
-    'fullname' :new FormControl(null , [Validators.required , Validators.minLength(3) , Validators.maxLength(8)]),
+    'fullname' :new FormControl(null , [Validators.required , Validators.minLength(3)]),
     'email' :new FormControl(null , [Validators.required , Validators.email , Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]),
     'password' :new FormControl(null , [Validators.required , Validators.minLength(8) , Validators.maxLength(30)])
   })
