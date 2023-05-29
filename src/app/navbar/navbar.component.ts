@@ -29,6 +29,7 @@ export class NavbarComponent {
 
   logOut(){
     this.authService.logOut();
+    this.isAdmin = false;
   }
 
 
