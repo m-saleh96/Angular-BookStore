@@ -26,6 +26,9 @@ export class LoginComponent {
     if(loginForm.valid == true){
       this.authService.login(loginForm.value).subscribe((data)=>{
         if (data.status == 'success') {
+          console.log(data.data.token);
+          
+          this.authService.saveCurrentUser(data.data.token)
           this.router.navigate(['/home'])
         }
         else{

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable , BehaviorSubject } from 'rxjs';
+import { userData } from '../userData'; 
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +21,12 @@ export class AuthService {
   {
     this.router.navigate(['/home'])
     return this.http.post('http://127.0.0.1:5000/auth/login' , loginFormValue)
+  }
+
+  saveCurrentUser(token:any)
+  {
+    let user = new userData(token);
+    localStorage.setItem('userData' , JSON.stringify(token))
+    this.currentUsers.next(token);
   }
 }
