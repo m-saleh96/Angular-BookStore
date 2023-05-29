@@ -6,3 +6,7 @@
 a{
     cursor: pointer;
 }
+.card{
+    height: 750px !important;
+   
+}

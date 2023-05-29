@@ -28,7 +28,6 @@ export class AuthService {
 
   login(loginFormValue:any):Observable<any>
   {
-    this.router.navigate(['/home'])
     return this.http.post('http://127.0.0.1:5000/auth/login' , loginFormValue)
   }
 

@@ -23,8 +23,7 @@ export class RegisterComponent {
   {
     if(registerForm.valid == true){
       this.authService.register(registerForm.value).subscribe((data)=>{
-        if (data.status === 'success') {
-          console.log(data);        
+        if (data.status === 'success') {     
           this.router.navigate(['/login'])
         }
         else{
