@@ -45,15 +45,6 @@ body {
     text-decoration: none;
 }
 
-.icon-count {
-    background-color: #ff0000;
-    color: #fff;
-    float: right;
-    font-size: 11px;
-    left: -25px;
-    padding: 2px;
-    position: relative;
-}
 
 /* End */
 
@@ -69,6 +60,7 @@ body {
     position: absolute;
     top: 70px;
     width: 250px;
+
 }
 
 .profile {
@@ -159,42 +151,4 @@ body {
     color: #e7e7e8;
     right: 14%;
 }
-
-.social-media {
-    text-align: center;
-    width: 90%;
-}
-
-.social-media span {
-    margin: 0 10px;
-}
-
-.fa-facebook:hover {
-    color: #4267b3 !important;
-}
-
-.fa-twitter:hover {
-    color: #1da1f2 !important;
-}
-
-.fa-instagram:hover {
-    color: #ce2b94 !important;
-}
-
-.fa-invision:hover {
-    color: #f83263 !important;
-}
-
-.fa-github:hover {
-    color: #161414 !important;
-}
-
-.fa-whatsapp:hover {
-    color: #25d366 !important;
-}
-
-.fa-snapchat:hover {
-    color: #fffb01 !important;
-}
-
 /* End */
