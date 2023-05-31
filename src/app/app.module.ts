@@ -13,6 +13,9 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { CategoryComponent } from './category/category.component';
+import { CardcategoryComponent } from './cardcategory/cardcategory.component';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +28,9 @@ import { NotfoundComponent } from './notfound/notfound.component';
     LoginComponent,
     ProfileComponent,
     AdminPanelComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    CategoryComponent,
+    CardcategoryComponent
   ],
   imports: [
     BrowserModule,
