@@ -9,6 +9,7 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { AuthGuard } from './guards/auth.guard';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { CategoryComponent } from './category/category.component';
+import { CategorybooksComponent } from './categorybooks/categorybooks.component';
 
 
 const routes: Routes = [
@@ -39,6 +40,10 @@ const routes: Routes = [
   {
     path:'category',
     component: CategoryComponent
+  },
+  {
+    path:'category/:id',
+    component: CategorybooksComponent
   },
   {
     path:'admin',
