@@ -1,5 +1,5 @@
 export interface Author {
-    id:number;
+    _id:number;
     photo:string;
     firstName:string;
     lastName:string;

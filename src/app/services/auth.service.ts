@@ -46,6 +46,10 @@ export class AuthService {
   getauthors() {
     return this.http.get('http://127.0.0.1:5000/author'); //er
   }
+  deleteAuthor(_id:number) {
+    return this.http.delete('http://127.0.0.1:5000/author/'+_id); //er
+  }
   
 
 }
+
