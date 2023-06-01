@@ -24,6 +24,10 @@ export class BooksService {
   getbooks() {
     return this.http.get('http://127.0.0.1:5000/book'); 
   }
+
+  deletebook(_id:number) {
+    return this.http.delete('http://127.0.0.1:5000/book/'+_id); 
+  }
  
 
 }

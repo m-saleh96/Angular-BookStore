@@ -24,4 +24,12 @@ deleteitem(i:number){
   this.book.splice(i,1);
 
 }
+
+deletebook(_id: number) {
+  this.bookservice.deletebook(_id).subscribe((res:any) => {
+    if (res.success) {
+      this.bookservice.getbooks();
+    }
+  });
+}
 }

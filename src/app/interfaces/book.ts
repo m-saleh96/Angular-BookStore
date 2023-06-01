@@ -1,5 +1,5 @@
 export interface Book {
-    id:number;
+    _id:number;
     photo:string;
     name:string;
     category:string;
