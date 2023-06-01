@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { BookService } from '../services/book.service';
 import { Book } from '../interfaces/book';
+import { BooksService } from '../services/books.service';
 
 @Component({
   selector: 'app-admin-book',
@@ -11,7 +11,7 @@ export class AdminBookComponent {
  
   book!:Book[];
  
-  constructor(private bookservice:BookService){}
+  constructor(private bookservice:BooksService){}
   ngOnInit(){
    this.bookservice.getbooks().subscribe((res:any)=>{this.book=res.data.books
   console.log(res.data.books);

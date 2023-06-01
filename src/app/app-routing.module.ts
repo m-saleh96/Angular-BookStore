@@ -12,6 +12,7 @@ import { CategoryComponent } from './category/category.component';
 import { CategorybooksComponent } from './categorybooks/categorybooks.component';
 import { AdminCategoryComponent } from './admin-category/admin-category.component';
 import { AdminAuthorComponent } from './admin-author/admin-author.component';
+import { AdminBookComponent } from './admin-book/admin-book.component';
 
 
 const routes: Routes = [
@@ -59,6 +60,10 @@ const routes: Routes = [
   {
     path:'admin/adminauthor',
     component: AdminAuthorComponent
+  },
+  {
+    path:'admin/adminbook',
+    component: AdminBookComponent
   },
   {
     path:'**',
