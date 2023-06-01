@@ -17,9 +17,15 @@ export class AdminCategoryComponent {
       console.log(res.data.categories);
     });
 
-     
+  
 
-
+  }
+  deletecategory(_id: number) {
+    this.categoryservice.deletecategory(_id).subscribe((res:any) => {
+      if (res.success) {
+        this.categoryservice.getcategories();
+      }
+    });
   }
   
 

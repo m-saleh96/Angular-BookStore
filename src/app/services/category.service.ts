@@ -14,4 +14,7 @@ export class CategoryService {
   getcategories() {
     return this.http.get('http://127.0.0.1:5000/category');
   }
+  deletecategory(_id:number) {
+    return this.http.delete('http://127.0.0.1:5000/category/'+_id); //er
+  }
 }

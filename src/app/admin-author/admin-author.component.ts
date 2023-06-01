@@ -18,5 +18,13 @@ export class AdminAuthorComponent {
 
     });
   }
+  deleteAuthor(_id: number) {
+    this.authorservice.deleteAuthor(_id).subscribe((res:any) => {
+      if (res.success) {
+        this.authorservice.getauthors();
+      }
+    });
+  }
 
 }
+
