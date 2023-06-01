@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { AuthorService } from '../services/author.service';
 import { Author } from '../interfaces/author';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-admin-author',
@@ -10,7 +10,7 @@ import { Author } from '../interfaces/author';
 export class AdminAuthorComponent {
    author!:Author[];
 
-  constructor(private authorservice: AuthorService) { }
+  constructor(private authorservice: AuthService) { }
   ngOnInit() {
     this.authorservice.getauthors().subscribe((res: any) => {
       this.author = res.data.authors
