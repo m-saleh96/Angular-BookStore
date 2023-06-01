@@ -10,7 +10,9 @@ body {
     font-family: Arial;
     overflow: hidden;
 }
-
+.main{
+    min-height: 65vh;
+}
 /* NavbarTop */
 .navbar-top {
     background-color: #fff;
