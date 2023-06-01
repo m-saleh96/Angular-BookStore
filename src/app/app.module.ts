@@ -17,6 +17,7 @@ import { CategoryComponent } from './category/category.component';
 import { CardcategoryComponent } from './cardcategory/cardcategory.component';
 import { CategorybooksComponent } from './categorybooks/categorybooks.component';
 import { FooterComponent } from './footer/footer.component';
+import { AdminCategoryComponent } from './admin-category/admin-category.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { FooterComponent } from './footer/footer.component';
     CategoryComponent,
     CardcategoryComponent,
     CategorybooksComponent,
-    FooterComponent
+    FooterComponent,
+    AdminCategoryComponent
   ],
   imports: [
     BrowserModule,

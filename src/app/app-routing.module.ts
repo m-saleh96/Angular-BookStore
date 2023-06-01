@@ -10,6 +10,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { CategoryComponent } from './category/category.component';
 import { CategorybooksComponent } from './categorybooks/categorybooks.component';
+import { AdminCategoryComponent } from './admin-category/admin-category.component';
 
 
 const routes: Routes = [
@@ -49,6 +50,10 @@ const routes: Routes = [
     path:'admin',
     canActivate:[AuthGuard],
     component: AdminPanelComponent
+  },
+  {
+    path:'admin/admincategory',
+    component: AdminCategoryComponent
   },
   {
     path:'**',

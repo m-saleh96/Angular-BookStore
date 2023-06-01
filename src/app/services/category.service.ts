@@ -10,4 +10,8 @@ export class CategoryService {
   getcategory() {
     return this.http.get(' http://127.0.0.1:5000/category');
   }
+  //admin dashboard
+  getcategories() {
+    return this.http.get('http://127.0.0.1:5000/category');
+  }
 }
