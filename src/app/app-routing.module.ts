@@ -84,6 +84,10 @@ const routes: Routes = [
         path: 'author/add',
         component:AuthorAddComponent,
       },
+      {
+        path:'**',
+        component: NotfoundComponent
+      },
 
     ]
 
