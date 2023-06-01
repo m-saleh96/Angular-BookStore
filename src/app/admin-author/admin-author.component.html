@@ -1,10 +1,13 @@
 <div class="container">
+    <br>
+    <div class="inc">
+    <button type="button" class="btn btn-primary">Add</button>
+    </div>
     <table class="table">
         <thead>
             <tr>
                 <th scope="col">Firstname</th>
                 <th scope="col">Lastname</th>
-                <th scope="col">Add</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
             </tr>
@@ -13,7 +16,6 @@
             <tr *ngFor="let row of author">
                 <td>{{row.firstName}}</td>
                 <td>{{row.lastName}}</td>
-                <td><button type="button" class="btn btn-primary">Add</button></td>
                 <td><button type="button" class="btn btn-secondary">Edit</button></td>
                 <td><button type="button" class="btn btn-danger">Delete</button></td>
             </tr>
