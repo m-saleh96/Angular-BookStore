@@ -16,6 +16,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { CategoryComponent } from './category/category.component';
 import { CardcategoryComponent } from './cardcategory/cardcategory.component';
 import { CategorybooksComponent } from './categorybooks/categorybooks.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { CategorybooksComponent } from './categorybooks/categorybooks.component'
     NotfoundComponent,
     CategoryComponent,
     CardcategoryComponent,
-    CategorybooksComponent
+    CategorybooksComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
