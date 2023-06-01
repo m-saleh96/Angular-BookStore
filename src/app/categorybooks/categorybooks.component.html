@@ -1,37 +1,20 @@
-  <!-- <p>categorybooks works!</p>
 
-  -->
-  <!-- <div *ngif="error"> -->
-    <p *ngIf="error">books are not found</p>
-<ul *ngFor="let book of books"> 
-    <li >
-        {{book.name}}
-    </li>
-    <img [src]="book?.photo" alt="" width="100%">
+<div class="container">
+    <div class="row">
 
-    <h4 class="my-2 ">{{book?.title}}</h4>
-    <p class="my-2 lead secondFontColor">{{book?.desc}}</p> 
-    
-
-
-</ul>
-
-
- <!-- <div class="row">
-    <div class="col-md-4">
-        <img [src]="book?.photo" alt="" width="100%">
+        <p *ngIf="error">books are not found</p>
+        <div class="col-lg-4 col-md-4 col-sm-12 bb" *ngFor="let book of books">
+            <img [src]="book?.photo" alt="" width="100%">
+            <div class="big text-center">
+                <h4>{{book?.title}}</h4>
+                <p class="name">{{book.name}}</p>
+                <p>lead secondFontColor">{{book?.desc}}</p>
+            </div>
+        </div>
     </div>
-    <div class="col-md-8">
-        <h2 class="my-2">{{book?.name}}</h2>
-        <h4 class="my-2 ">{{book?.title}}</h4>
-         <p class="my-2 lead secondFontColor">{{book?.desc}}</p> 
-    </div>
-
-
-    
-
-
 </div>
 
- --> 
-<!-- </div> -->
+
+
+
+
