@@ -1,29 +1,33 @@
-
-<div *ngIf="flag" class="alert alert-danger w-50 m-auto">
-    <p >this email is aready register</p>
+<div class="main">
+    <div class="container">
+        <div *ngIf="flag" class="alert alert-danger w-50 m-auto">
+            <p >this email is aready register</p>
+        </div>
+        <form class="w-75 m-auto py-5"  [formGroup]="registerForm" (ngSubmit)="getRegisterInfo(registerForm)">
+            
+            <div class="form-group my-2">
+                <label>Full Name</label>
+                <input [class.is-valid]="registerForm.get('fullname')?.errors ==null && registerForm.get('fullname')?.touched"
+                formControlName='fullname' type="text" class="form-control">
+                <p *ngIf="registerForm.get('fullname')?.errors !=null && registerForm.get('fullname')?.touched"
+                class="py-2 text-danger">fistName inValid</p>
+            </div>
+            <div class="form-group my-2">
+                <label>Email</label>
+                <input [class.is-valid]="registerForm.get('email')?.errors ==null && registerForm.get('email')?.touched"
+                formControlName='email' type="text" class="form-control">
+                <p *ngIf="registerForm.get('email')?.errors !=null && registerForm.get('email')?.touched"
+                class="py-2 text-danger">email inValid</p>
+            </div>
+            <div class="form-group my-2">
+                <label>Password</label>
+                <input [class.is-valid]="registerForm.get('password')?.errors ==null && registerForm.get('password')?.touched"
+                formControlName='password' type="password" class="form-control">
+                <p *ngIf="registerForm.get('password')?.errors !=null && registerForm.get('password')?.touched"
+                class="py-2 text-danger">password inValid</p>
+            </div>
+            <button [disabled]="registerForm.invalid" type="submit" class="btn btn-danger text-white my-2">register</button>
+        </form>
+    </div>
 </div>
-<form class="w-75 m-auto py-5"  [formGroup]="registerForm" (ngSubmit)="getRegisterInfo(registerForm)">
-    
-    <div class="form-group my-2">
-        <label>Full Name</label>
-        <input [class.is-valid]="registerForm.get('fullname')?.errors ==null && registerForm.get('fullname')?.touched"
-        formControlName='fullname' type="text" class="form-control">
-        <p *ngIf="registerForm.get('fullname')?.errors !=null && registerForm.get('fullname')?.touched"
-        class="py-2 text-danger">fistName inValid</p>
-    </div>
-    <div class="form-group my-2">
-        <label>email</label>
-        <input [class.is-valid]="registerForm.get('email')?.errors ==null && registerForm.get('email')?.touched"
-        formControlName='email' type="text" class="form-control">
-        <p *ngIf="registerForm.get('email')?.errors !=null && registerForm.get('email')?.touched"
-        class="py-2 text-danger">email inValid</p>
-    </div>
-    <div class="form-group my-2">
-        <label>password</label>
-        <input [class.is-valid]="registerForm.get('password')?.errors ==null && registerForm.get('password')?.touched"
-        formControlName='password' type="password" class="form-control">
-        <p *ngIf="registerForm.get('password')?.errors !=null && registerForm.get('password')?.touched"
-        class="py-2 text-danger">password inValid</p>
-    </div>
-    <button [disabled]="registerForm.invalid" type="submit" class="btn btn-danger text-white my-2">register</button>
-</form>
+

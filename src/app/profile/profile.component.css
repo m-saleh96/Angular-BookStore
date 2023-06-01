@@ -10,7 +10,9 @@ body {
     font-family: Arial;
     overflow: hidden;
 }
-
+.main{
+    min-height: 65vh;
+}
 /* NavbarTop */
 .navbar-top {
     background-color: #fff;
@@ -51,14 +53,15 @@ body {
 /* Sidenav */
 .sidenav {
     background-color: #fff;
+
     color: #333;
     border-bottom-right-radius: 25px;
-    height: 86%;
-    left: 0;
+    height: 46%;
+    left: 120px;
     overflow-x: hidden;
     padding-top: 20px;
     position: absolute;
-    top: 70px;
+    top: 150px;
     width: 250px;
 
 }

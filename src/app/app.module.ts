@@ -15,12 +15,20 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { CategoryComponent } from './category/category.component';
 import { CardcategoryComponent } from './cardcategory/cardcategory.component';
+<<<<<<< HEAD
 import { AuthorsComponent } from './authors/authors.component';
 import { AuthorDetailsComponent } from './author-details/author-details.component';
 import { AuthorComponent } from './admin/author/author.component';
 import { AuthorAddComponent } from './admin/author-add/author-add.component';
 import { AuthorUpdateComponent } from './admin/author-update/author-update.component';
 import { HomeComponent } from './admin/home/home.component';
+=======
+import { CategorybooksComponent } from './categorybooks/categorybooks.component';
+import { FooterComponent } from './footer/footer.component';
+import { AdminCategoryComponent } from './admin-category/admin-category.component';
+import { AdminAuthorComponent } from './admin-author/admin-author.component';
+import { AdminBookComponent } from './admin-book/admin-book.component';
+>>>>>>> 9818b44705813e00c47ed7701c76e1c14591f0c9
 
 
 @NgModule({
@@ -37,12 +45,20 @@ import { HomeComponent } from './admin/home/home.component';
     NotfoundComponent,
     CategoryComponent,
     CardcategoryComponent,
+<<<<<<< HEAD
     AuthorsComponent,
     AuthorDetailsComponent,
     AuthorComponent,
     AuthorAddComponent,
     AuthorUpdateComponent,
     HomeComponent
+=======
+    CategorybooksComponent,
+    FooterComponent,
+    AdminCategoryComponent,
+    AdminAuthorComponent,
+    AdminBookComponent
+>>>>>>> 9818b44705813e00c47ed7701c76e1c14591f0c9
   ],
   imports: [
     BrowserModule,

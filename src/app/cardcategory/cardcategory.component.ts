@@ -16,4 +16,7 @@ export class CardcategoryComponent {
   @Input()category!:Category;
 
 
+show(){
+  console.log(this.category._id)
+}
 }

@@ -1,7 +1,7 @@
 
 .back{
     border: 1px solid #000000;
-    background-image: url(../../assets/images/46.jpg);
+    background-image: url("../../assets/images/47.jpg");
     background-position: center;
     background-size: cover;
     border-radius: 6px;
@@ -11,4 +11,8 @@
 }
 .row{
     justify-content: center;
+}
+
+.container{
+    min-height: 75vh;
 }

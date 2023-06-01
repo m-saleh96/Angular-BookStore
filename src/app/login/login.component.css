@@ -1,0 +1,18 @@
+.main{
+    height: 75vh;
+    background: url("../../assets/images/2.jpg") center;
+    display: flex;
+    align-items: center;
+}
+form{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px white solid;
+    border-radius: 10px;
+    padding: 30px;
+}
+label{
+    font-size: 20px;
+    font-weight: 500;
+    
+}

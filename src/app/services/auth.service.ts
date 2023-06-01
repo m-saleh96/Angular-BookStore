@@ -43,5 +43,13 @@ export class AuthService {
     localStorage.clear() ;
     this.router.navigate(['/login'])
   }
+  getauthors() {
+    return this.http.get('http://127.0.0.1:5000/author'); 
+  }
+  deleteAuthor(_id:number) {
+    return this.http.delete('http://127.0.0.1:5000/author/'+_id); 
+  }
+  
 
 }
+

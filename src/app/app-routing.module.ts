@@ -9,6 +9,7 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { AuthGuard } from './guards/auth.guard';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { CategoryComponent } from './category/category.component';
+<<<<<<< HEAD
 import {AuthorsComponent} from './authors/authors.component';
 import {AuthorDetailsComponent} from './author-details/author-details.component';
 import{ AuthorComponent}from './admin/author/author.component';
@@ -16,6 +17,12 @@ import{HomeComponent}from './admin/home/home.component';
 import{AuthorUpdateComponent}from './admin/author-update/author-update.component';
 import{AuthorAddComponent}from './admin/author-add/author-add.component';
 
+=======
+import { CategorybooksComponent } from './categorybooks/categorybooks.component';
+import { AdminCategoryComponent } from './admin-category/admin-category.component';
+import { AdminAuthorComponent } from './admin-author/admin-author.component';
+import { AdminBookComponent } from './admin-book/admin-book.component';
+>>>>>>> 9818b44705813e00c47ed7701c76e1c14591f0c9
 
 
 const routes: Routes = [
@@ -52,8 +59,18 @@ const routes: Routes = [
     component: CategoryComponent
   },
   {
+<<<<<<< HEAD
     path:'authors',
     component: AuthorsComponent
+=======
+    path:'category/:id',
+    component: CategorybooksComponent
+  },
+  {
+    path:'admin',
+    canActivate:[AuthGuard],
+    component: AdminPanelComponent
+>>>>>>> 9818b44705813e00c47ed7701c76e1c14591f0c9
   },
 //  {
 //    path:'admin',
@@ -65,6 +82,7 @@ const routes: Routes = [
 //    component: NotfoundComponent
 //  },
   {
+<<<<<<< HEAD
     path: 'admin',
     canActivate:[AuthGuard],
     component:AuthorComponent,
@@ -87,6 +105,22 @@ const routes: Routes = [
 
     ]
 
+=======
+    path:'admin/admincategory',
+    component: AdminCategoryComponent
+  },
+  {
+    path:'admin/adminauthor',
+    component: AdminAuthorComponent
+  },
+  {
+    path:'admin/adminbook',
+    component: AdminBookComponent
+  },
+  {
+    path:'**',
+    component: NotfoundComponent
+>>>>>>> 9818b44705813e00c47ed7701c76e1c14591f0c9
   },
 ];
 

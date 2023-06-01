@@ -6,7 +6,9 @@
 a{
     cursor: pointer;
 }
-.card{
-    height: 750px !important;
-   
-}
+html {
+    background-color: #000;
+  }
+.active{
+    border-bottom: 2px solid white;
+  }
