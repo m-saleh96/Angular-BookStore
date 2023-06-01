@@ -3,10 +3,10 @@
     <div class="card-body">
     <h4 class="card-title text-danger">{{book?.name}}</h4>
     <p class="card-text">{{book?.title}}</p>
-    <p class="card-text">{{book?.desc}}</p>
+    <!-- <p class="card-text">{{book?.desc}}</p> -->
     </div>
-    <div class="card-footer">
-    <a (click)="redirectToBook(book?._id)" class="btn btn-primary ">Details</a>
+    <div class="card-footer text-center">
+        <a (click)="redirectToBook(book?._id)" class="btn btn-dark px-5 ">Details</a>
     <small class="text-muted"></small>
     </div>
     <div class="vote"></div>
