@@ -17,6 +17,8 @@ export class AdminCategoryComponent {
       console.log(res.data.categories);
     });
 
+     
+
 
   }
   
