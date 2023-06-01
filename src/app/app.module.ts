@@ -15,6 +15,12 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { CategoryComponent } from './category/category.component';
 import { CardcategoryComponent } from './cardcategory/cardcategory.component';
+import { AuthorsComponent } from './authors/authors.component';
+import { AuthorDetailsComponent } from './author-details/author-details.component';
+import { AuthorComponent } from './admin/author/author.component';
+import { AuthorAddComponent } from './admin/author-add/author-add.component';
+import { AuthorUpdateComponent } from './admin/author-update/author-update.component';
+import { HomeComponent } from './admin/home/home.component';
 
 
 @NgModule({
@@ -30,7 +36,13 @@ import { CardcategoryComponent } from './cardcategory/cardcategory.component';
     AdminPanelComponent,
     NotfoundComponent,
     CategoryComponent,
-    CardcategoryComponent
+    CardcategoryComponent,
+    AuthorsComponent,
+    AuthorDetailsComponent,
+    AuthorComponent,
+    AuthorAddComponent,
+    AuthorUpdateComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

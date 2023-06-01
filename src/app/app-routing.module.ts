@@ -9,6 +9,13 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { AuthGuard } from './guards/auth.guard';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { CategoryComponent } from './category/category.component';
+import {AuthorsComponent} from './authors/authors.component';
+import {AuthorDetailsComponent} from './author-details/author-details.component';
+import{ AuthorComponent}from './admin/author/author.component';
+import{HomeComponent}from './admin/home/home.component';
+import{AuthorUpdateComponent}from './admin/author-update/author-update.component';
+import{AuthorAddComponent}from './admin/author-add/author-add.component';
+
 
 
 const routes: Routes = [
@@ -23,6 +30,10 @@ const routes: Routes = [
   {
     path:'book-detail/:id',
     component: BookDetailsComponent
+  },
+  {
+    path:'author-detail/:id',
+    component: AuthorDetailsComponent
   },
   {
     path:'register',
@@ -41,13 +52,41 @@ const routes: Routes = [
     component: CategoryComponent
   },
   {
-    path:'admin',
-    canActivate:[AuthGuard],
-    component: AdminPanelComponent
+    path:'authors',
+    component: AuthorsComponent
   },
+//  {
+//    path:'admin',
+//    canActivate:[AuthGuard],
+//    component: AdminPanelComponent
+//  },
+//  {
+//    path:'**',
+//    component: NotfoundComponent
+//  },
   {
-    path:'**',
-    component: NotfoundComponent
+    path: 'admin',
+    canActivate:[AuthGuard],
+    component:AuthorComponent,
+    children:[
+
+      {
+        path: 'author',
+        canActivate:[AuthGuard],
+        component: AuthorComponent,
+
+      },
+      {
+        path: 'author/update/:id',
+        component:AuthorUpdateComponent,
+      },
+      {
+        path: 'author/add',
+        component:AuthorAddComponent,
+      },
+
+    ]
+
   },
 ];
 
