@@ -15,37 +15,10 @@
             <tr *ngFor="let row of category">
                 <td>{{row.fullname}}</td>
                 <td><button type="button" class="btn btn-secondary">Edit</button></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
+                <td><button type="button" class="btn btn-danger" (click)="deletecategory(row._id)">Delete</button></td>
+
             </tr>
 
-<<<<<<< HEAD
         </tbody>
     </table>
 </div>
-=======
- <div class="container">
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Add</th>
-            <th scope="col">Edit</th>
-            <th scope="col">Delete</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let row of category">
-            <td>{{row.fullname}}</td>
-            <td><button type="button" class="btn btn-primary">Add</button></td>
-            <td><button type="button" class="btn btn-secondary">Edit</button></td>
-            <td><button type="button" class="btn btn-danger" (click)="deletecategory(row._id)">Delete</button></td>
-        
-        </tr>
-
-    </tbody>
-</table>
-</div>
-
-
-
->>>>>>> e98b62ce861ed243f121f14f074c3cd67835bddf
