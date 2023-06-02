@@ -22,7 +22,7 @@ export class CategorybooksComponent {
   ) {
     this.id = this.activerouter.snapshot.params['id']
     this.subscriptions.push(this.book.getbooksbycategory(this.id).subscribe(data => { 
-      this.books = data.data
+      this.books = data.data.books
       console.log(data);
     },errors=>{
       this.error="error"

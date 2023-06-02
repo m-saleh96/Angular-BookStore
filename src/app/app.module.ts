@@ -26,6 +26,7 @@ import { FooterComponent } from './footer/footer.component';
 import { AdminCategoryComponent } from './admin-category/admin-category.component';
 import { AdminAuthorComponent } from './admin-author/admin-author.component';
 import { AdminBookComponent } from './admin-book/admin-book.component';
+import { ShelfComponent } from './shelf/shelf.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { AdminBookComponent } from './admin-book/admin-book.component';
     FooterComponent,
     AdminCategoryComponent,
     AdminAuthorComponent,
-    AdminBookComponent
+    AdminBookComponent,
+    ShelfComponent
   ],
   imports: [
     BrowserModule,

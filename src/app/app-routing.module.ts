@@ -19,6 +19,7 @@ import { AdminBookComponent } from './admin-book/admin-book.component';
 import { AdminCategoryComponent } from './admin-category/admin-category.component';
 import { CategorybooksComponent } from './categorybooks/categorybooks.component';
 import { AdminAuthorComponent } from './admin-author/admin-author.component';
+import { ShelfComponent } from './shelf/shelf.component';
 
 
 
@@ -51,6 +52,11 @@ const routes: Routes = [
     path: 'profile',
     component: ProfileComponent
   },
+  {
+    path: 'shelf',
+    component: ShelfComponent
+  },
+
   {
     path: 'category',
     component: CategoryComponent
