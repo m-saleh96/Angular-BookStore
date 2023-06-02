@@ -68,38 +68,39 @@ const routes: Routes = [
    canActivate:[AuthGuard],
    component: AdminPanelComponent
  },
+   {
+    path: 'admins',
+    canActivate:[AuthGuard],
+    component:AuthorComponent,
+    children:[
+
+      {
+        path: 'author',
+        canActivate:[AuthGuard],
+        component: AuthorComponent,
+
+      },
+      {
+        path: 'author/update/:id',
+        component:AuthorUpdateComponent,
+      },
+      {
+        path: 'author/add',
+        component:AuthorAddComponent,
+      },
+      {
+        path:'**',
+        component: NotfoundComponent
+      },
+
+    ]
+
+  },
  {
    path:'**',
    component: NotfoundComponent
  },
-  // {
-  //   path: 'admin',
-  //   canActivate:[AuthGuard],
-  //   component:AuthorComponent,
-  //   children:[
 
-  //     {
-  //       path: 'author',
-  //       canActivate:[AuthGuard],
-  //       component: AuthorComponent,
-
-  //     },
-  //     {
-  //       path: 'author/update/:id',
-  //       component:AuthorUpdateComponent,
-  //     },
-  //     {
-  //       path: 'author/add',
-  //       component:AuthorAddComponent,
-  //     },
-  //     {
-  //       path:'**',
-  //       component: NotfoundComponent
-  //     },
-
-  //   ]
-
-  // },
 ];
 
 @NgModule({
