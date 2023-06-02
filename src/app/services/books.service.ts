@@ -12,9 +12,12 @@ export class BooksService {
   getBook(num:any){
     return this.http.get(`http://127.0.0.1:5000/book?pageNumber=${num}`)
   }
-  
-  addBook(data:any){
-    return this.http.post(`http://127.0.0.1:5000/book` , data)
+
+  addBook(data:any , token:any){
+    const headers = new HttpHeaders({
+      'Authorization' : token
+    })
+    return this.http.post(`http://127.0.0.1:5000/book` , data , {headers})
   }
 
   getBookDetails(id:number){

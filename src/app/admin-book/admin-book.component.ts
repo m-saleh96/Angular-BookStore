@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Book } from '../interfaces/book';
 import { BooksService } from '../services/books.service';
 import { AuthService } from '../services/auth.service';
-import { Token } from '@angular/compiler';
 import { FormGroup , FormControl ,Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthorsService } from '../services/authors.service';
@@ -21,7 +20,12 @@ export class AdminBookComponent {
   page:number =1;
   token!:any;
   flag:boolean = false;
+  selectedFile!: File | null;
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
 
+  
   addBook:FormGroup = new FormGroup({
     'name' :new FormControl(null , [Validators.required]),
     'title' :new FormControl(null , [Validators.required ]),
@@ -41,10 +45,10 @@ export class AdminBookComponent {
    this.categoryService.getcategories().subscribe((data:any)=>this.category=data.data.categories);
 }
 
-add(addBook:any)
+add(addBook:any , token:any)
   {
     if(addBook.valid == true){
-      this.bookservice.addBook(addBook.value).subscribe((data)=>{
+      this.bookservice.addBook(addBook.value , token).subscribe((data)=>{
         if (data === 'success') {     
           this.router.navigate(['/login'])
         }
