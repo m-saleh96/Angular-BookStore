@@ -7,18 +7,16 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  isLogin:boolean = false;
-  isAdmin:boolean = false;
+  isLogin!:boolean;
+  isAdmin!:boolean ;
   constructor(private authService:AuthService){
 
-    authService.currentUsers.subscribe((data)=>{
+    authService.currentUsers.subscribe((data:any)=>{
       if (data !=null) {
         this.isLogin = true; 
+        this.isAdmin=data.isAdmin
       } else {
         this.isLogin = false;
-      }
-      if (data == true){
-        this.isAdmin = true;
       }
     })
 
