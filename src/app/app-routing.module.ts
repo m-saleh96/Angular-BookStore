@@ -15,6 +15,7 @@ import{ AuthorComponent}from './admin/author/author.component';
 import{HomeComponent}from './admin/home/home.component';
 import{AuthorUpdateComponent}from './admin/author-update/author-update.component';
 import{AuthorAddComponent}from './admin/author-add/author-add.component';
+import { AdminBookComponent } from './admin-book/admin-book.component';
 
 
 
@@ -55,43 +56,50 @@ const routes: Routes = [
     path:'authors',
     component: AuthorsComponent
   },
-//  {
-//    path:'admin',
-//    canActivate:[AuthGuard],
-//    component: AdminPanelComponent
-//  },
-//  {
-//    path:'**',
-//    component: NotfoundComponent
-//  },
+
   {
-    path: 'admin',
-    canActivate:[AuthGuard],
-    component:AuthorComponent,
-    children:[
-
-      {
-        path: 'author',
-        canActivate:[AuthGuard],
-        component: AuthorComponent,
-
-      },
-      {
-        path: 'author/update/:id',
-        component:AuthorUpdateComponent,
-      },
-      {
-        path: 'author/add',
-        component:AuthorAddComponent,
-      },
-      {
-        path:'**',
-        component: NotfoundComponent
-      },
-
-    ]
-
+    path:'admin/adminbook',
+    component: AdminBookComponent
   },
+
+
+ {
+   path:'admin',
+   canActivate:[AuthGuard],
+   component: AdminPanelComponent
+ },
+ {
+   path:'**',
+   component: NotfoundComponent
+ },
+  // {
+  //   path: 'admin',
+  //   canActivate:[AuthGuard],
+  //   component:AuthorComponent,
+  //   children:[
+
+  //     {
+  //       path: 'author',
+  //       canActivate:[AuthGuard],
+  //       component: AuthorComponent,
+
+  //     },
+  //     {
+  //       path: 'author/update/:id',
+  //       component:AuthorUpdateComponent,
+  //     },
+  //     {
+  //       path: 'author/add',
+  //       component:AuthorAddComponent,
+  //     },
+  //     {
+  //       path:'**',
+  //       component: NotfoundComponent
+  //     },
+
+  //   ]
+
+  // },
 ];
 
 @NgModule({

@@ -8,15 +8,18 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  
+  isAdmin!:boolean;
   constructor(private authService:AuthService , private router:Router){ }
+
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree 
     {
+      this.authService.currentUsers.subscribe((data:any)=>
+        this.isAdmin=data.isAdmin)
 
-      if (this.authService.currentUsers.getValue() == true) {
+      if (this.isAdmin) {
         return true;
       } else {
         this.router.navigate(['/login'])

@@ -1,34 +1,90 @@
 <div class="container">
     <br>
     <div>
-        <button type="button" class="btn btn-primary add">Add</button>
+
+      <form class="w-75 m-auto py-5"  [formGroup]="addBook" (ngSubmit)="add(addBook)">
+            
+        <div class="form-group my-2">
+            <label>Name</label>
+            <input [class.is-valid]="addBook.get('title')?.errors ==null && addBook.get('name')?.touched"
+            formControlName='name' type="text" class="form-control">
+            <p *ngIf="addBook.get('name')?.errors !=null && addBook.get('name')?.touched"
+            class="py-2 text-danger">inValid</p>
+        </div>
+        <div class="form-group my-2">
+            <label>title</label>
+            <input [class.is-valid]="addBook.get('title')?.errors ==null && addBook.get('title')?.touched"
+            formControlName='title' type="text" class="form-control">
+            <p *ngIf="addBook.get('title')?.errors !=null && addBook.get('title')?.touched"
+            class="py-2 text-danger">inValid</p>
+        </div>
+        <div class="form-group my-2">
+            <label>desc</label>
+            <input [class.is-valid]="addBook.get('desc')?.errors ==null && addBook.get('desc')?.touched"
+            formControlName='desc' type="text" class="form-control">
+            <p *ngIf="addBook.get('desc')?.errors !=null && addBook.get('desc')?.touched"
+            class="py-2 text-danger">inValid</p>
+        </div>
+        <div class="form-group my-2">
+            <label>author</label>
+            <select id="" [class.is-valid]="addBook.get('author')?.errors ==null && addBook.get('author')?.touched"
+            formControlName='author' type="text" class="form-control">
+            <option *ngFor="let author of author" [value]="author._id" >{{author.firstName}} {{author.lastName}}</option>
+          </select>
+        </div>
+        <div class="form-group my-2">
+            <label>category</label>
+            <select id="" [class.is-valid]="addBook.get('category')?.errors ==null && addBook.get('category')?.touched"
+            formControlName='category' type="text" class="form-control">
+            <option *ngFor="let category of category" [value]="category._id" >{{category.fullname}}</option>
+          </select>
+        </div>
+        <div class="form-group my-2">
+          <label>photo</label>
+          <input [class.is-valid]="addBook.get('photo')?.errors ==null && addBook.get('photo')?.touched"
+          formControlName='photo' type="file" class="form-control">
+      </div>
+
+
+
+        <button [disabled]="addBook.invalid" type="submit" class="btn btn-danger text-white my-2">Add</button>
+    </form>
+
 
     </div>
     <br>
     <br>
 
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">photo</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">category</th>
-                        <th scope="col">auhor</th>
-                        <th scope="col">Edit</th>
-                        <th scope="col">Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let row of book">
-                        <td><img class="img-fluid" src={{row.photo}}></td>
-                        <td>{{row.name}}</td>
-                        <td>{{row.category}}</td>
-                        <td>{{row.author}}</td>
-                        <td><button type="button" class="btn btn-secondary">Edit</button></td>
-                        <td><button type="button" class="btn btn-danger" (click)="deletebook(row._id)">Delete</button></td>
-                    </tr>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">photo</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of book">
+                <td><img class="img-fluid" src={{row.photo}} width="50px"></td>
+                <td>{{row.name}}</td>
+                <td>{{row.desc}}</td>
+                <td><button type="button" class="btn btn-secondary">Edit</button></td>
+                <td><button type="button" class="btn btn-danger" (click)="deletebook(row._id , token)">Delete</button></td>
+            </tr>
 
-                </tbody>
-            </table>
-        </div>
+        </tbody>
+    </table>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li id="box" [ngClass]="{'disabled':page==1,'page-item':true} ">
+            <a class="page-link" (click)="prevPage()"><i class="fa-solid fa-angle-left px-1"></i></a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" (click)="nextPage()"><i class="fa-solid fa-angle-right px-1"></i></a>
+          </li>
+        </ul>
+      </nav>
+</div>
     

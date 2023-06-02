@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { Book } from '../interfaces/book';
 import { BooksService } from '../services/books.service';
+import { AuthService } from '../services/auth.service';
+import { Token } from '@angular/compiler';
+import { FormGroup , FormControl ,Validators} from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthorsService } from '../services/authors.service';
+import { CategoryService } from '../services/category.service';
 
 @Component({
   selector: 'app-admin-book',
@@ -9,27 +15,80 @@ import { BooksService } from '../services/books.service';
 })
 export class AdminBookComponent {
  
-  book!:Book[];
+  book!:any[];
+  author!:any[];
+  category!:any[];
+  page:number =1;
+  token!:any;
+  flag:boolean = false;
+
+  addBook:FormGroup = new FormGroup({
+    'name' :new FormControl(null , [Validators.required]),
+    'title' :new FormControl(null , [Validators.required ]),
+    'desc' :new FormControl(null , [Validators.required ]),
+    'author' :new FormControl(null , [Validators.required ]),
+    'category' :new FormControl(null , [Validators.required ]),
+    'photo' :new FormControl(null , [Validators.required ]),
+  })
  
-  constructor(private bookservice:BooksService){}
+  constructor(private bookservice:BooksService , private authService:AuthService ,
+     private router:Router , private authorService:AuthorsService , private categoryService:CategoryService){}
+
   ngOnInit(){
-   this.bookservice.getbooks().subscribe((res:any)=>{this.book=res.data.books
-  console.log(res.data.books);
-});
+   this.bookservice.getbooks().subscribe((res:any)=>this.book=res.data.books);
+   this.authService.currentUsers.subscribe((data:any)=>this.token=data.token);
+   this.authorService.getAuthors().subscribe((data:any)=>this.author=data.data.authors);
+   this.categoryService.getcategories().subscribe((data:any)=>this.category=data.data.categories);
+}
 
+add(addBook:any)
+  {
+    if(addBook.valid == true){
+      this.bookservice.addBook(addBook.value).subscribe((data)=>{
+        if (data === 'success') {     
+          this.router.navigate(['/login'])
+        }
+        else{
+          this.flag = true       
+        }
+      })
+    } else{
+      this.flag = true
+    }
+    
+  }
+
+nextPage(){
+  this.page ++
+  this.bookservice.getBook(this.page).subscribe((res:any)=>{
+      if((res.data.books.length==0)){
+        this.page --               
+      } else {
+        this.book = res.data.books
+      }           
+  })
+  
+  
+}
+prevPage(){
+  this.page --
+  this.bookservice.getBook(this.page).subscribe((res:any)=>{
+      if((this.page==0)){
+        this.page ++ 
+      } else {
+        this.book = res.data.books
+      }           
+  })
 }
 
 
-deleteitem(i:number){
-  this.book.splice(i,1);
-
-}
-
-deletebook(_id: number) {
-  this.bookservice.deletebook(_id).subscribe((res:any) => {
+deletebook(_id: number ,token:any) {
+  this.book = this.book.filter((elem:any)=>(elem._id)!=_id)
+  this.bookservice.deletebook(_id , token).subscribe((res:any) => {
     if (res.success) {
       this.bookservice.getbooks();
     }
   });
+
 }
 }

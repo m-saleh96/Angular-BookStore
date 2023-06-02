@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient , HttpHeaders  } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -11,6 +11,10 @@ export class BooksService {
 
   getBook(num:any){
     return this.http.get(`http://127.0.0.1:5000/book?pageNumber=${num}`)
+  }
+  
+  addBook(data:any){
+    return this.http.post(`http://127.0.0.1:5000/book` , data)
   }
 
   getBookDetails(id:number){
@@ -25,8 +29,11 @@ export class BooksService {
     return this.http.get('http://127.0.0.1:5000/book'); 
   }
 
-  deletebook(_id:number) {
-    return this.http.delete('http://127.0.0.1:5000/book/'+_id); 
+  deletebook(_id:number , token:any) {
+    const headers = new HttpHeaders({
+      'Authorization' : token
+    })
+    return this.http.delete(('http://127.0.0.1:5000/book/'+_id) , {headers}); 
   }
  
 
