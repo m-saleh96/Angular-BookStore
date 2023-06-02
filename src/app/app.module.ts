@@ -51,7 +51,7 @@ import { AdminBookComponent } from './admin-book/admin-book.component';
     CategorybooksComponent,
     FooterComponent,
     AdminCategoryComponent,
-    //AdminAuthorComponent,
+    AdminAuthorComponent,
     AdminBookComponent
   ],
   imports: [

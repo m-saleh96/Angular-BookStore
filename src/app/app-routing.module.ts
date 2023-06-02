@@ -18,6 +18,7 @@ import { AuthorAddComponent } from './admin/author-add/author-add.component';
 import { AdminBookComponent } from './admin-book/admin-book.component';
 import { AdminCategoryComponent } from './admin-category/admin-category.component';
 import { CategorybooksComponent } from './categorybooks/categorybooks.component';
+import { AdminAuthorComponent } from './admin-author/admin-author.component';
 
 
 
@@ -66,6 +67,10 @@ const routes: Routes = [
   {
     path: 'admin/admincategory',
     component: AdminCategoryComponent
+  },
+  {
+    path: 'admin/adminauthor',
+    component: AdminAuthorComponent
   },
 
 

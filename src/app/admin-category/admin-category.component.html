@@ -1,4 +1,4 @@
- <div class="container">
+ <!-- <div class="container">
     <br>
     <div>
         <button type="button" class="btn btn-primary add">Add</button>
@@ -21,5 +21,69 @@
 
         </tbody>
     </table>
-</div>
+</div> -->
 
+<div>
+    <div class="row flex-nowrap">
+        
+    <div class="row">
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 first">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                    <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                        <span ><img src="../../assets/images/p1.png"></span><span class="title ">Dashboard</span>
+                    </a>
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                        <li>
+                            <a routerLink="/admin/adminbook" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline"><i class="fa-solid fa-book-bookmark mx-2"></i>Books</span></a>
+                        </li>
+                        
+                        <li>
+                            <a routerLink="/admin/admincategory" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline"><i class="fa-brands fa-readme mx-2"></i>Categories</span> </a>
+                        </li>
+                        <li>
+                            <a routerLink="/admin/adminauthor" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline"><i class="fa-solid fa-pen-to-square mx-2"></i>Authors</span> </a>
+                        </li>
+                        <li>
+                            <a  class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline"><i class="fa-solid fa-arrow-right-from-bracket mx-2"></i>logout</span> </a>
+                        </li>
+                    </ul>
+                    <hr>
+                  
+                </div>
+            </div>     
+    
+        <div class="col-lg-9 col-md-9 col-sm-9">
+            <br>
+            <div>
+                <button type="button" class="btn btn-primary add">Add</button>
+            </div>
+           
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let row of category">
+                        <td>{{row.fullname}}</td>
+                        <td><button type="button" class="btn btn-secondary">Edit</button></td>
+                        <td><button type="button" class="btn btn-danger" (click)="deletecategory(row._id)">Delete</button></td>
+        
+                    </tr>
+        
+                </tbody>
+            </table>
+        </div>
+        <div class="col py-3 w-50">
+            <router-outlet></router-outlet>
+           </div>
+    </div>
+</div>
+</div>

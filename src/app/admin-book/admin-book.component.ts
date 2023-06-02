@@ -13,6 +13,7 @@ import { CategoryService } from '../services/category.service';
   styleUrls: ['./admin-book.component.css']
 })
 export class AdminBookComponent {
+  
  
   book!:any[];
   author!:any[];
@@ -25,7 +26,6 @@ export class AdminBookComponent {
     this.selectedFile = event.target.files[0];
   }
 
-  
   addBook:FormGroup = new FormGroup({
     'name' :new FormControl(null , [Validators.required]),
     'title' :new FormControl(null , [Validators.required ]),
