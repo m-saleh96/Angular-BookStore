@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CategoryService } from '../services/category.service';
 import { Category } from '../interfaces/category';
 
+
 @Component({
   selector: 'app-admin-category',
   templateUrl: './admin-category.component.html',

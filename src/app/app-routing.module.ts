@@ -9,97 +9,108 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { AuthGuard } from './guards/auth.guard';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { CategoryComponent } from './category/category.component';
-import {AuthorsComponent} from './authors/authors.component';
-import {AuthorDetailsComponent} from './author-details/author-details.component';
-import{ AuthorComponent}from './admin/author/author.component';
-import{HomeComponent}from './admin/home/home.component';
-import{AuthorUpdateComponent}from './admin/author-update/author-update.component';
-import{AuthorAddComponent}from './admin/author-add/author-add.component';
+import { AuthorsComponent } from './authors/authors.component';
+import { AuthorDetailsComponent } from './author-details/author-details.component';
+import { AuthorComponent } from './admin/author/author.component';
+import { HomeComponent } from './admin/home/home.component';
+import { AuthorUpdateComponent } from './admin/author-update/author-update.component';
+import { AuthorAddComponent } from './admin/author-add/author-add.component';
 import { AdminBookComponent } from './admin-book/admin-book.component';
+import { AdminCategoryComponent } from './admin-category/admin-category.component';
+import { CategorybooksComponent } from './categorybooks/categorybooks.component';
 
 
 
 const routes: Routes = [
   {
-    path:'',
+    path: '',
     component: BookListComponent
   },
   {
-    path:'home',
+    path: 'home',
     component: BookListComponent
   },
   {
-    path:'book-detail/:id',
+    path: 'book-detail/:id',
     component: BookDetailsComponent
   },
   {
-    path:'author-detail/:id',
+    path: 'author-detail/:id',
     component: AuthorDetailsComponent
   },
   {
-    path:'register',
+    path: 'register',
     component: RegisterComponent
   },
   {
-    path:'login',
+    path: 'login',
     component: LoginComponent
   },
   {
-    path:'profile',
+    path: 'profile',
     component: ProfileComponent
   },
   {
-    path:'category',
+    path: 'category',
     component: CategoryComponent
   },
   {
-    path:'authors',
+    path: 'authors',
     component: AuthorsComponent
   },
 
   {
-    path:'admin/adminbook',
+    path: 'admin/adminbook',
     component: AdminBookComponent
+  }, 
+  {
+    path: 'admin/admincategory',
+    component: AdminCategoryComponent
   },
 
 
- {
-   path:'admin',
-   canActivate:[AuthGuard],
-   component: AdminPanelComponent
- },
-   {
+  {
+    path: 'category/:id',
+    component: CategorybooksComponent
+  },
+
+  {
+    path: 'admin',
+    canActivate: [AuthGuard],
+    component: AdminPanelComponent
+  },
+  {
     path: 'admins',
-    canActivate:[AuthGuard],
-    component:AuthorComponent,
-    children:[
+    canActivate: [AuthGuard],
+    component: AuthorComponent,
+    children: [
 
       {
         path: 'author',
-        canActivate:[AuthGuard],
+        canActivate: [AuthGuard],
         component: AuthorComponent,
 
       },
       {
         path: 'author/update/:id',
-        component:AuthorUpdateComponent,
+        component: AuthorUpdateComponent,
       },
       {
         path: 'author/add',
-        component:AuthorAddComponent,
+        component: AuthorAddComponent,
       },
       {
-        path:'**',
+        path: '**',
         component: NotfoundComponent
       },
 
     ]
 
   },
- {
-   path:'**',
-   component: NotfoundComponent
- },
+  {
+    path: '**',
+    component: NotfoundComponent
+  },
 
 ];
 
