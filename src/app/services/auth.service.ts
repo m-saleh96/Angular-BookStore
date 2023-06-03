@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable , BehaviorSubject } from 'rxjs';
@@ -46,10 +46,12 @@ export class AuthService {
   getauthors() {
     return this.http.get('http://127.0.0.1:5000/author'); 
   }
-  deleteAuthor(_id:number) {
-    return this.http.delete('http://127.0.0.1:5000/author/'+_id); 
+  deleteAuthor(_id:number, token:any) {
+    const headers = new HttpHeaders({
+      'Authorization' : token
+    })
+    return this.http.delete(('http://127.0.0.1:5000/author/'+_id), {headers});
   }
   
 
 }
-
