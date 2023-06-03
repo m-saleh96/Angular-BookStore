@@ -1,11 +1,13 @@
 
 <div class="row mt-5">
   <div class="col-md-6">
-    <img class = "img-fluid" src="../../assets/images/46.jpg" alt="">
+    <img class = "img-fluid" [src] = "'http://localhost:5000'+authorDetails.photo" alt="">
   </div>
   <div class="col-md-6 ">
     <div class="author-info">
       <h3>{{ authorDetails.firstName }} {{ authorDetails.lastName }}</h3>
+      <p>{{ authorDetails.dob }}</p>
+      <p>{{ authorDetails.brief }}</p>
       <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe pariatur necessitatibus libero qui iure fuga mollitia corrupti. Delectus quam blanditiis voluptate sed ipsum dolorum asperiores. Neque consequuntur nihil voluptatibus vel.</p>
     </div>
 

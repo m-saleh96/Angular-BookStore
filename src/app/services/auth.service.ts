@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable , BehaviorSubject } from 'rxjs';
-import { userData } from '../userData'; 
+import { userData } from '../userData';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class AuthService {
 
     if (localStorage.getItem('userData') != null) {
       let x:any
-      x = localStorage.getItem('userData')  
+      x = localStorage.getItem('userData')
       this.currentUsers.next(x);
      }
    }
@@ -44,14 +44,15 @@ export class AuthService {
     this.router.navigate(['/login'])
   }
   getauthors() {
-    return this.http.get('http://127.0.0.1:5000/author'); 
+    return this.http.get('http://127.0.0.1:5000/author');
   }
-  deleteAuthor(_id:number, token:any) {
-    const headers = new HttpHeaders({
-      'Authorization' : token
-    })
-    return this.http.delete(('http://127.0.0.1:5000/author/'+_id), {headers});
+  deleteAuthor(_id:string, token : any) {
+
+    const headers = {
+      authorization: token
+    }
+    return this.http.delete('http://127.0.0.1:5000/author/'+_id, {headers});
   }
-  
+
 
 }

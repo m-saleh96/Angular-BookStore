@@ -9,8 +9,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class AdminAuthorComponent {
    author!:Author[];
-   token!:any;
-
+  token!:any
   constructor(private authorservice: AuthService) { }
   ngOnInit() {
     this.authorservice.getauthors().subscribe((res: any) => {
@@ -19,9 +18,8 @@ export class AdminAuthorComponent {
 
     });
   }
-  deleteAuthor(_id: number,token:any) {
-    this.author = this.author.filter((elem:any)=>(elem._id)!=_id)
-    this.authorservice.deleteAuthor(_id,token).subscribe((res:any) => {
+  deleteAuthor(_id: string, token: any) {
+    this.authorservice.deleteAuthor(_id, token).subscribe((res:any) => {
       if (res.success) {
         this.authorservice.getauthors();
       }

@@ -1,27 +1,29 @@
 <div class="container">
   <div class="row">
-    <h1 class="col-md-10">Author Page</h1>
-    <button routerLink="/author/add" class="btn btn-success col-md-2 my-3">Add New Author</button>
+    <h1 class="col-md-10">Author</h1>
+    <a routerLink="/author/add"  class="btn btn-success col-md-2 my-3">Add Authors </a>
     <div class="table-container">
     <table class="table table-bordered">
       <thead>
-        <tr>
+        <tr class="text-center">
           <th>First Name</th>
           <th>Last Name</th>
-          <th>Birth Date</th>
           <th>Image</th>
+          <th>Date of Birth</th>
+          <th>Brief</th>
           <th>Actions</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody >
         <tr *ngFor="let row of Author">
           <td>{{row.firstName}}</td>
-          <td>{{row.LastName}}</td>
-          <td>{{row.birthDate}}</td>
-          <td><img [src]="row.image" [alt]="row.firstName" class="author-image"></td>
-          <td>
-            <button routerLink="update/{{row._id}}" class="btn btn-primary ">Edit</button>
-            <button (click)="delete(row._id)" class="btn btn-danger m-2">Delete</button>
+          <td>{{row.lastName}}</td>
+          <td><img [src]="row.photo" [alt]="row.firstName" class="author-image"></td>
+          <td>{{row.dob}}</td>
+          <td>{{row.brief}}</td>
+          <td class="text-center">
+            <button routerLink="/update/{{row._id}}" class="btn btn-secondary ">Edit</button>
+            <button (click)="deleteAuthor(row._id)" class="btn btn-danger m-2">Delete</button>
           </td>
         </tr>
       </tbody>

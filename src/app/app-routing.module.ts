@@ -100,32 +100,36 @@ const routes: Routes = [
   },
   {
     path: 'admins',
-    canActivate: [AuthGuard],
-    component: AuthorComponent,
-    children: [
+    //canActivate: [AuthGuard],
+    component: AdminPanelComponent,
+
+  },
+    //children: [
 
       {
-        path: 'author',
-        canActivate: [AuthGuard],
+
+        path: 'admin/adminauthor',
+        //canActivate:[AuthGuard],
         component: AuthorComponent,
 
       },
       {
-        path: 'author/update/:id',
-        component: AuthorUpdateComponent,
+        path: 'update/:id',
+        //canActivate:[AuthGuard],
+        component:AuthorUpdateComponent,
       },
       {
         path: 'author/add',
-        component: AuthorAddComponent,
+        //canActivate:[AuthGuard],
+        component:AuthorAddComponent,
       },
       {
         path: '**',
         component: NotfoundComponent
       },
 
-    ]
+    //]
 
-  },
   {
     path: '**',
     component: NotfoundComponent
