@@ -19,8 +19,8 @@ export class AuthorAddComponent {
 
   constructor(private fb: FormBuilder, private author: AuthorsService , private activeRouter: ActivatedRoute, private router: Router, private location: Location) {
     this.rigester = fb.group({
-      firstName: [null, [Validators.required, Validators.minLength(4)]],
-      LastName: [null, [Validators.required, Validators.minLength(4)]],
+      firstName: [null, [Validators.required, Validators.minLength(3)]],
+      LastName: [null, [Validators.required, Validators.minLength(3)]],
       birthDate: [null, [Validators.required]],
       image: [null, [Validators.required]],
     })

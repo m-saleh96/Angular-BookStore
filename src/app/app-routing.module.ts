@@ -66,22 +66,27 @@ const routes: Routes = [
 //  },
   {
     path: 'admin',
-    canActivate:[AuthGuard],
+    //canActivate:[AuthGuard],
     component:AuthorComponent,
-    children:[
+
+  },
+    //children:[
 
       {
+
         path: 'author',
-        canActivate:[AuthGuard],
+        //canActivate:[AuthGuard],
         component: AuthorComponent,
 
       },
       {
-        path: 'author/update/:id',
+        path: 'update/:id',
+        //canActivate:[AuthGuard],
         component:AuthorUpdateComponent,
       },
       {
         path: 'author/add',
+        //canActivate:[AuthGuard],
         component:AuthorAddComponent,
       },
       {
@@ -89,9 +94,8 @@ const routes: Routes = [
         component: NotfoundComponent
       },
 
-    ]
+    //]
 
-  },
 ];
 
 @NgModule({

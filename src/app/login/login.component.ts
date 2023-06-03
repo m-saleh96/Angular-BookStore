@@ -25,7 +25,7 @@ export class LoginComponent {
   {
     if(loginForm.valid == true){
       this.authService.login(loginForm.value).subscribe((data)=>{
-        if (data.status === 'success') {   
+        if (data.status === 'success') {
           this.authService.saveCurrentUser(data.data.isAdmin)
           this.router.navigate(['/home'])
         }
@@ -37,7 +37,7 @@ export class LoginComponent {
     }else{
       this.flag = true;
     }
-    
+
   }
 
 }
