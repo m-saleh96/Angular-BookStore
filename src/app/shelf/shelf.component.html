@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row flex-nowrap">
+        
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3">
+            <button type="button" class="btn btn-primary my-2 ">Read</button><br>
+            <button type="button" class="btn btn-primary my-2">currently reading</button><br>
+            <button type="button" class="btn btn-primary my-2">want to read</button><br>
+
+        </div>
+            
+    
+        <div class="col-lg-9 col-md-9 col-sm-9">
+            <br>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Author</th>
+                        <th scope="col">Avg rate</th>
+                        <th scope="col">Rating</th>
+                        <th scope="col">Shelve</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr  *ngFor="let row of shelves">
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+        
+                    </tr>
+        
+                </tbody>
+            </table>
+        </div>
+        <div class="col py-3 w-50">
+            <router-outlet></router-outlet>
+           </div>
+    </div>
+</div>
+</div>

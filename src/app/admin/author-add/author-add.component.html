@@ -1,0 +1,73 @@
+<div class="container-fluid d-flex justify-content-center align-items-center h-100">
+  <div class="row">
+    <div class="shadow px-5 py-5">
+<form [formGroup]="rigester" enctype="multipart/form-data" (ngSubmit)="submitlogin($event)">
+  <div class="mb-3">
+    <label for="name" class="form-label">Full Name</label>
+    <input type="text" class="form-control" [class.is-invalid]="firstName?.invalid && firstName?.touched"
+        [class.is-valid]="firstName?.valid" id="name" aria-describedby="nameHelp" formControlName="firstName"
+        name="firstName"
+        (input)="hasChanges = true" />
+
+    <div id="nameHelp" class="form-text text-danger" *ngIf="firstName?.touched && firstName?.invalid">
+        <span *ngIf="firstName?.errors?.['required']">
+          this fieled is required
+        </span>
+        <span *ngIf="firstName?.errors?.['minlength']"> min length is 4 </span>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="lastname" class="form-label">last name</label>
+    <input type="text" class="form-control" [class.is-invalid]="lastName?.invalid && lastName?.touched"
+        [class.is-valid]="lastName?.valid" id="name" aria-describedby="lastnameHelp" formControlName="LastName"
+        name="LastName"
+        (input)="hasChanges = true"/>
+
+    <div id="lastnameHelp" class="form-text text-danger" *ngIf="lastName?.touched && lastName?.invalid">
+        <span *ngIf="lastName?.errors?.['required']">
+          this field is required
+        </span>
+        <span *ngIf="lastName?.errors?.['minlength']"> min length is 4 </span>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="barth" class="form-label">Birth date</label>
+    <input type="datetime" class="form-control" [class.is-invalid]="biarth_date?.invalid && biarth_date?.touched"
+        [class.is-valid]="biarth_date?.valid" id="biarth_date" aria-describedby="biarth_dateHelp"
+        formControlName="birthDate" name="birthDate"
+        (input)="hasChanges = true" />
+
+    <div id="biarth_dateHelp" class="form-text text-danger" *ngIf="biarth_date?.touched && biarth_date?.invalid">
+        <span *ngIf="biarth_date?.errors?.['required']">
+          this field is required
+        </span>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="image" class="form-label">image</label>
+    <input type="file" class="form-control" [class.is-invalid]="image?.invalid && image?.touched"
+      [class.is-valid]="image?.valid" id="biarth_date" aria-describedby="imageHelp" formControlName="image"
+      name="image"
+      (input)="hasChanges = true"/>
+
+    <div id="imageHelp" class="form-text text-danger" *ngIf="image?.touched && image?.invalid">
+        <span *ngIf="image?.errors?.['required']"> this field is required </span>
+    </div>
+  </div>
+  <div class="mt-4">
+    <button type="submit" class="btn btn-success me-3" [disabled]="rigester.invalid">Add</button>
+    <button type="button" class="btn btn-danger me-3" (click)="cancel()">Cancel</button>
+  </div>
+
+</form>
+</div>
+</div>
+</div>
+
+<!--
+  <div>
+    {{rigester.value|json}}
+  </div> -->

@@ -9,40 +9,85 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { AuthGuard } from './guards/auth.guard';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { CategoryComponent } from './category/category.component';
+import { AuthorsComponent } from './authors/authors.component';
+import { AuthorDetailsComponent } from './author-details/author-details.component';
+import { AuthorComponent } from './admin/author/author.component';
+import { HomeComponent } from './admin/home/home.component';
+import { AuthorUpdateComponent } from './admin/author-update/author-update.component';
+import { AuthorAddComponent } from './admin/author-add/author-add.component';
+import { AdminBookComponent } from './admin-book/admin-book.component';
+import { AdminCategoryComponent } from './admin-category/admin-category.component';
+import { CategorybooksComponent } from './categorybooks/categorybooks.component';
+import { AdminAuthorComponent } from './admin-author/admin-author.component';
+import { ShelfComponent } from './shelf/shelf.component';
+
 import{SearchComponent}from './search/search.component';
 
 const routes: Routes = [
   {
-    path:'',
+    path: '',
     component: BookListComponent
   },
   {
-    path:'home',
+    path: 'home',
     component: BookListComponent
   },
   {
-    path:'book-detail/:id',
+    path: 'book-detail/:id',
     component: BookDetailsComponent
   },
   {
-    path:'register',
+    path: 'author-detail/:id',
+    component: AuthorDetailsComponent
+  },
+  {
+    path: 'register',
     component: RegisterComponent
   },
   {
-    path:'login',
+    path: 'login',
     component: LoginComponent
   },
   {
-    path:'profile',
+    path: 'profile',
     component: ProfileComponent
   },
+  // {
+  //   path: 'shelf',
+  //   component: ShelfComponent
+  // },
+
   {
-    path:'category',
+    path: 'category',
     component: CategoryComponent
   },
   {
-    path:'admin',
-    canActivate:[AuthGuard],
+    path: 'authors',
+    component: AuthorsComponent
+  },
+
+  {
+    path: 'admin/adminbook',
+    component: AdminBookComponent
+  }, 
+  {
+    path: 'admin/admincategory',
+    component: AdminCategoryComponent
+  },
+  {
+    path: 'admin/adminauthor',
+    component: AdminAuthorComponent
+  },
+
+
+  {
+    path: 'category/:id',
+    component: CategorybooksComponent
+  },
+
+  {
+    path: 'admin',
+    canActivate: [AuthGuard],
     component: AdminPanelComponent
   },
   {
@@ -50,9 +95,42 @@ const routes: Routes = [
     component: SearchComponent
   },
   {
-    path:'**',
+    path:'search',
+    component: SearchComponent
+  },
+  {
+    path: 'admins',
+    canActivate: [AuthGuard],
+    component: AuthorComponent,
+    children: [
+
+      {
+        path: 'author',
+        canActivate: [AuthGuard],
+        component: AuthorComponent,
+
+      },
+      {
+        path: 'author/update/:id',
+        component: AuthorUpdateComponent,
+      },
+      {
+        path: 'author/add',
+        component: AuthorAddComponent,
+      },
+      {
+        path: '**',
+        component: NotfoundComponent
+      },
+
+    ]
+
+  },
+  {
+    path: '**',
     component: NotfoundComponent
   },
+
   
 ];
 

@@ -15,6 +15,18 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { CategoryComponent } from './category/category.component';
 import { CardcategoryComponent } from './cardcategory/cardcategory.component';
+import { AuthorsComponent } from './authors/authors.component';
+import { AuthorDetailsComponent } from './author-details/author-details.component';
+import { AuthorComponent } from './admin/author/author.component';
+import { AuthorAddComponent } from './admin/author-add/author-add.component';
+import { AuthorUpdateComponent } from './admin/author-update/author-update.component';
+import { HomeComponent } from './admin/home/home.component';
+import { CategorybooksComponent } from './categorybooks/categorybooks.component';
+import { FooterComponent } from './footer/footer.component';
+import { AdminCategoryComponent } from './admin-category/admin-category.component';
+import { AdminAuthorComponent } from './admin-author/admin-author.component';
+import { AdminBookComponent } from './admin-book/admin-book.component';
+import { ShelfComponent } from './shelf/shelf.component';
 import { SearchComponent } from './search/search.component';
 
 
@@ -32,6 +44,18 @@ import { SearchComponent } from './search/search.component';
     NotfoundComponent,
     CategoryComponent,
     CardcategoryComponent,
+    AuthorsComponent,
+    AuthorDetailsComponent,
+    AuthorComponent,
+    AuthorAddComponent,
+    AuthorUpdateComponent,
+    HomeComponent,
+    CategorybooksComponent,
+    FooterComponent,
+    AdminCategoryComponent,
+    AdminAuthorComponent,
+    AdminBookComponent,
+    ShelfComponent,
     SearchComponent
   ],
   imports: [
