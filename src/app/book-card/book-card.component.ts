@@ -18,11 +18,6 @@ redirectToBook(id:number){
   this.router.navigate(['book-detail' , id])
 }
 
-
-
-  
-  
-
  }
 
 

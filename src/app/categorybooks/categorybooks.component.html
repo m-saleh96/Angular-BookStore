@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row">
 
-        <p *ngIf="error">books are not found</p>
+        <p *ngIf="books.length===0">books are not found</p>
         <div class="col-lg-4 col-md-4 col-sm-12 bb" *ngFor="let book of books">
             <img [src]="book?.photo" alt="" width="100%">
             <div class="big text-center">
