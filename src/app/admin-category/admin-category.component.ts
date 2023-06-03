@@ -10,6 +10,8 @@ import { Category } from '../interfaces/category';
 export class AdminCategoryComponent {
   
   category!:Category[];
+  token!:any;
+  flag:boolean = false;
   constructor(private categoryservice: CategoryService) { }
   ngOnInit() {
     this.categoryservice.getcategories().subscribe((res: any) => {
@@ -20,13 +22,16 @@ export class AdminCategoryComponent {
   
 
   }
-  deletecategory(_id: number) {
-    this.categoryservice.deletecategory(_id).subscribe((res:any) => {
+  deletecategory(_id: number,token:any) {
+    this.category = this.category.filter((elem:any)=>(elem._id)!=_id)
+    this.categoryservice.deletecategory(_id,token).subscribe((res:any) => {
       if (res.success) {
         this.categoryservice.getcategories();
       }
     });
   }
+
+  
   
 
 }

@@ -1,5 +1,6 @@
 import { Component , Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { RatingserviceService } from '../services/ratingservice.service';
 
 @Component({
   selector: 'app-book-card',
@@ -8,11 +9,22 @@ import { Router } from '@angular/router';
 })
 export class BookCardComponent {
 @Input() book!:any
+rating!:any[];
 
-constructor(private router:Router){}
+
+constructor(private router:Router,private ratingservice:RatingserviceService){}
 
 redirectToBook(id:number){
   this.router.navigate(['book-detail' , id])
 }
 
-}
+
+
+  
+  
+
+ }
+
+
+
+

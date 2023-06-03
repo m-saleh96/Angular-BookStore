@@ -74,7 +74,7 @@
                     <tr *ngFor="let row of category">
                         <td>{{row.fullname}}</td>
                         <td><button type="button" class="btn btn-secondary">Edit</button></td>
-                        <td><button type="button" class="btn btn-danger" (click)="deletecategory(row._id)">Delete</button></td>
+                        <td><button type="button" class="btn btn-danger" (click)="deletecategory(row._id,token)">Delete</button></td>
         
                     </tr>
         

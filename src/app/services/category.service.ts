@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,11 @@ export class CategoryService {
   getcategories() {
     return this.http.get('http://127.0.0.1:5000/category');
   }
-  deletecategory(_id:number) {
-    return this.http.delete('http://127.0.0.1:5000/category/'+_id); //er
-  }
+  deletecategory(_id:number, token:any) {
+    const headers = new HttpHeaders({
+      'Authorization' : token
+    })
+    return this.http.delete(('http://127.0.0.1:5000/category/'+_id), {headers}); 
+}
+
 }
