@@ -9,7 +9,7 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { AuthGuard } from './guards/auth.guard';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { CategoryComponent } from './category/category.component';
-
+import{SearchComponent}from './search/search.component';
 
 const routes: Routes = [
   {
@@ -46,9 +46,14 @@ const routes: Routes = [
     component: AdminPanelComponent
   },
   {
+    path:'search',
+    component: SearchComponent
+  },
+  {
     path:'**',
     component: NotfoundComponent
   },
+  
 ];
 
 @NgModule({

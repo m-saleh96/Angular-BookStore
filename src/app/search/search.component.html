@@ -1,0 +1,33 @@
+<p>search works!</p>
+<form action="">
+
+    <input type="text" name="search" placeholder="Search.." [(ngModel)]="word">
+    <button type="submit" (click)="searchBooks(word)">Submit</button>
+</form>
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-4" >
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let book of books">
+                
+                <th scope="row">1</th>
+                <td>{{book.name}}</td>
+                <td>{{book.category.fullname}}</td>
+                <td>{{book.author.firstName}} {{book.author.lastName}}</td>
+              </tr>
+            </tbody>
+          </table>
+      
+        </div>
+    </div>
+</div>
