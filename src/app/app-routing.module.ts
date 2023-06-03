@@ -67,14 +67,14 @@ const routes: Routes = [
   {
     path: 'admin',
     //canActivate:[AuthGuard],
-    component:AuthorComponent,
+    component:AdminPanelComponent,
 
   },
     //children:[
 
       {
 
-        path: 'author',
+        path: 'admin/adminauthor',
         //canActivate:[AuthGuard],
         component: AuthorComponent,
 

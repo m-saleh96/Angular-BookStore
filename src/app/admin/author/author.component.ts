@@ -8,6 +8,7 @@ import { AuthorsService } from 'src/app/services/authors.service';
 export class AuthorComponent {
 
   Author!:any
+  token!:any
   constructor(private authorservice: AuthorsService) { }
   ngOnInit() {
     this.authorservice.getAuthors().subscribe((res: any) => {
@@ -17,7 +18,7 @@ export class AuthorComponent {
 
 
     deleteAuthor(_id: string) {
-      this.authorservice.deleteAuthor(_id).subscribe((res:any) => {
+      this.authorservice.deleteAuthor(_id,).subscribe((res:any) => {
         if (res.success) {
           this.authorservice.getAuthors();
         }
@@ -31,7 +32,7 @@ export class AuthorComponent {
 
 
 
-  
+
 //  constructor(private author:AuthorsService) { }
 
 //  ngOnInit() {

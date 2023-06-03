@@ -3,7 +3,7 @@
   <div *ngFor="let author of allAuthors" class="col-lg-4 col-md-6">
     <a [routerLink]="['/author-detail', author._id]">
       <div class="border rounded-2 text-center p-3">
-        <img class="img-fluid" [src]="author.photo" alt="">
+        <img class="img-fluid" [src]="'http://localhost:5000'+author.photo" alt="">
         <hr>
         <h3><span>{{ author.firstName }}</span><span> {{ author.lastName }}</span></h3>
       </div>
