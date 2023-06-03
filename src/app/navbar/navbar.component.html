@@ -29,10 +29,10 @@
 
         
         <div class="x d-flex">
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          </form>
           <ul class="navbar-nav">
+            <li *ngIf="!isLogin" class="nav-item">
+              <a class="nav-link text-white" routerLink="search" routerLinkActive="active">Search</a>
+            </li>
             <li *ngIf="!isLogin" class="nav-item">
               <a class="nav-link text-white" routerLink="register" routerLinkActive="active">Register</a>
             </li>
