@@ -18,7 +18,7 @@ export class AdminAuthorComponent {
 
     });
   }
-  deleteAuthor(_id: string, token: any) {
+  deleteAuthor(_id: any, token: any) {
     this.authorservice.deleteAuthor(_id, token).subscribe((res:any) => {
       if (res.success) {
         this.authorservice.getauthors();

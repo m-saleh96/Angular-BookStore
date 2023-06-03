@@ -87,7 +87,7 @@ const routes: Routes = [
 
   {
     path: 'admin',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     component: AdminPanelComponent
   },
   {
@@ -98,12 +98,7 @@ const routes: Routes = [
     path:'search',
     component: SearchComponent
   },
-  {
-    path: 'admins',
-    //canActivate: [AuthGuard],
-    component: AdminPanelComponent,
 
-  },
     //children: [
 
       {
