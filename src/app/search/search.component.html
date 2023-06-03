@@ -1,25 +1,24 @@
-<p>search works!</p>
-<form action="">
-
-    <input type="text" name="search" placeholder="Search.." [(ngModel)]="word">
-    <button type="submit" (click)="searchBooks(word)">Submit</button>
-</form>
-
+<div class="main">
 <div class="container">
+  <form action="">
+
+    <input type="text"  class="form-control search-input" name="search" placeholder="Search.." aria-label="search" aria-describedby="addon-wrapping"[(ngModel)]="word">
+    <button type="submit" class="btn btn-primary search-btn" (click)="searchBooks(word)">Submit</button>
+</form>
     <div class="row">
       <div class="col-md-4" >
         <table class="table">
             <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">number</th>
+                <th scope="col">bookname</th>
+                <th scope="col">Category Name</th>
+                <th scope="col">Author</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let book of books">
-                
+
                 <th scope="row">1</th>
                 <td>{{book.name}}</td>
                 <td>{{book.category.fullname}}</td>
@@ -27,7 +26,9 @@
               </tr>
             </tbody>
           </table>
-      
         </div>
     </div>
+</div>
+
+
 </div>
