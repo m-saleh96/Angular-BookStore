@@ -10,8 +10,7 @@
         <table class="table">
             <thead>
               <tr>
-                <th scope="col">number</th>
-                <th scope="col">bookname</th>
+                <th scope="col">Bookname</th>
                 <th scope="col">Category Name</th>
                 <th scope="col">Author</th>
               </tr>
@@ -19,7 +18,6 @@
             <tbody>
               <tr *ngFor="let book of books">
 
-                <th scope="row">1</th>
                 <td>{{book.name}}</td>
                 <td>{{book.category.fullname}}</td>
                 <td>{{book.author.firstName}} {{book.author.lastName}}</td>
