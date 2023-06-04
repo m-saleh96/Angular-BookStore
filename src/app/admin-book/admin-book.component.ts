@@ -21,6 +21,8 @@ export class AdminBookComponent {
   page:number =1;
   token!:any;
   flag:boolean = false;
+  activeAddbutton:boolean = false;
+
   selectedFile!: File | null;
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
@@ -40,17 +42,25 @@ export class AdminBookComponent {
 
   ngOnInit(){
    this.bookservice.getbooks().subscribe((res:any)=>this.book=res.data.books);
-   this.authService.currentUsers.subscribe((data:any)=>this.token=data.token);
    this.authorService.getAuthors().subscribe((data:any)=>this.author=data.data.authors);
    this.categoryService.getcategories().subscribe((data:any)=>this.category=data.data.categories);
+   this.authService.currentUsers.subscribe((data:any)=>{
+    if (data !=null) {
+      data = JSON.parse(data)
+      this.token=data.token
+    }
+  })
+   
 }
 
 add(addBook:any , token:any)
   {
+
     if(addBook.valid == true){
-      this.bookservice.addBook(addBook.value , token).subscribe((data)=>{
+      this.bookservice.addBook(addBook.value , token).subscribe((data)=>{ 
         if (data === 'success') {     
-          this.router.navigate(['/login'])
+          alert("success")
+          this.activeAddbutton = false
         }
         else{
           this.flag = true       
@@ -94,5 +104,9 @@ deletebook(_id: number ,token:any) {
     }
   });
 
+}
+
+addform(){
+  this.activeAddbutton = true;
 }
 }
