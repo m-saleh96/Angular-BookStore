@@ -16,8 +16,12 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree 
     {
-      this.authService.currentUsers.subscribe((data:any)=>
-        this.isAdmin=data.isAdmin)
+      this.authService.currentUsers.subscribe((data:any)=>{
+        if (data !=null) {
+          data = JSON.parse(data)
+          this.isAdmin=data.isAdmin
+        }
+      })
 
       if (this.isAdmin) {
         return true;

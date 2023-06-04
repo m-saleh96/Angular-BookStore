@@ -15,12 +15,14 @@ export class NavbarComponent {
       if (data !=null) {
         this.isLogin = true; 
         this.isAdmin=data.isAdmin
+        data = JSON.parse(data)
+        this.isAdmin=data.isAdmin
       } else {
         this.isLogin = false;
       }
     })
-
-
+  }
+  ngOnInit(){
     
   }
 
