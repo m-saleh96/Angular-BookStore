@@ -75,7 +75,7 @@ const routes: Routes = [
     component: AdminCategoryComponent
   },
   {
-    path: 'admin/adminauthor',
+    path: 'admin/adminauthors',
     component: AdminAuthorComponent
   },
 
@@ -94,10 +94,7 @@ const routes: Routes = [
     path:'search',
     component: SearchComponent
   },
-  {
-    path:'search',
-    component: SearchComponent
-  },
+
 
     //children: [
 
