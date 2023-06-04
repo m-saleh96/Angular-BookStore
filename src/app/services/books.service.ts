@@ -44,7 +44,7 @@ export class BooksService {
 
   deletebook(_id:number , token:any) {
     const headers = new HttpHeaders({
-      'Authorization' : token
+      'Authorization' : `Bearer ${token}`
     })
     return this.http.delete(('http://127.0.0.1:5000/book/'+_id) , {headers}); 
   }
