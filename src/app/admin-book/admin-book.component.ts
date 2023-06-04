@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { Book } from '../interfaces/book';
 import { BooksService } from '../services/books.service';
 import { AuthService } from '../services/auth.service';
-import { FormGroup , FormControl ,Validators} from '@angular/forms';
+import { FormGroup , FormControl ,Validators, FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthorsService } from '../services/authors.service';
 import { CategoryService } from '../services/category.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-admin-book',
@@ -25,7 +26,7 @@ export class AdminBookComponent {
   activeAddbutton:boolean = false;
   activeupdatebutton:boolean = false;
   bookId!:number;
-  selectedFile!: File | null;
+  selectedFile: File | null = null;
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
   }
@@ -40,7 +41,7 @@ export class AdminBookComponent {
   })
  
   constructor(private bookservice:BooksService , private authService:AuthService ,
-     private router:Router , private authorService:AuthorsService , private categoryService:CategoryService){}
+     private router:Router , private authorService:AuthorsService , private categoryService:CategoryService , private formBuilder:FormBuilder , private http:HttpClient){}
 
   ngOnInit(){
    this.bookservice.getbooks().subscribe((res:any)=>this.book=res.data.books);
@@ -57,20 +58,46 @@ export class AdminBookComponent {
 add(addBook:any , token:any)
   {
     if (this.activeAddbutton) {
-      if(addBook.valid == true){
-        this.bookservice.addBook(addBook.value , token).subscribe((data)=>{ 
-          if (data === 'success') {     
-            alert("success")
-            this.activeForm = false;
-            this.activeAddbutton = false
-          }
-          else{
-            this.flag = true       
-          }
-        })
-      } else{
-        this.flag = true
+      if (this.addBook.valid && this.selectedFile) {
+        const formData = new FormData();
+        formData.append('name', this.addBook.get('name')!.value);
+        formData.append('title', this.addBook.get('title')!.value);
+        formData.append('desc', this.addBook.get('desc')!.value);
+        formData.append('author', this.addBook.get('author')!.value);
+        formData.append('category', this.addBook.get('category')!.value);
+        formData.append('photo', this.selectedFile);
+  
+        // Send the formData to the server using HttpClient
+        this.bookservice.addBook(formData , token).subscribe((data)=>{ 
+              if (data === 'success') {     
+                alert("success")
+                this.activeForm = false;
+                this.activeAddbutton = false
+              }
+              else{
+                this.flag = true       
+              }})
+
+
+        
       }
+    
+
+
+      // if(addBook.valid == true){
+      //   this.bookservice.addBook(addBook.value , token).subscribe((data)=>{ 
+      //     if (data === 'success') {     
+      //       alert("success")
+      //       this.activeForm = false;
+      //       this.activeAddbutton = false
+      //     }
+      //     else{
+      //       this.flag = true       
+      //     }
+      //   })
+      // } else{
+      //   this.flag = true
+      // }
     } else if(this.activeupdatebutton){
       if(addBook.valid == true){
         this.bookservice.updataBook(addBook.value , token , this.bookId).subscribe((data)=>{ 
