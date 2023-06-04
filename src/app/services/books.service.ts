@@ -20,6 +20,13 @@ export class BooksService {
     return this.http.post(`http://127.0.0.1:5000/book` , data , {headers})
   }
 
+  updataBook(data:any , token:any ,id:number){
+    const headers = new HttpHeaders({
+      'Authorization' : `Bearer ${token}` 
+    })
+    return this.http.post(`http://127.0.0.1:5000/book/${id}` , data , {headers})
+  }
+
   getBookDetails(id:number){
     return this.http.get('http://127.0.0.1:5000/book/'+id)
 

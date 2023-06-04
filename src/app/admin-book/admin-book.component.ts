@@ -21,8 +21,10 @@ export class AdminBookComponent {
   page:number =1;
   token!:any;
   flag:boolean = false;
+  activeForm:boolean=false;
   activeAddbutton:boolean = false;
-
+  activeupdatebutton:boolean = false;
+  bookId!:number;
   selectedFile!: File | null;
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
@@ -55,20 +57,39 @@ export class AdminBookComponent {
 
 add(addBook:any , token:any)
   {
-
-    if(addBook.valid == true){
-      this.bookservice.addBook(addBook.value , token).subscribe((data)=>{ 
-        if (data === 'success') {     
-          alert("success")
-          this.activeAddbutton = false
-        }
-        else{
-          this.flag = true       
-        }
-      })
-    } else{
-      this.flag = true
+    if (this.activeAddbutton) {
+      if(addBook.valid == true){
+        this.bookservice.addBook(addBook.value , token).subscribe((data)=>{ 
+          if (data === 'success') {     
+            alert("success")
+            this.activeForm = false;
+            this.activeAddbutton = false
+          }
+          else{
+            this.flag = true       
+          }
+        })
+      } else{
+        this.flag = true
+      }
+    } else if(this.activeupdatebutton){
+      if(addBook.valid == true){
+        this.bookservice.updataBook(addBook.value , token , this.bookId).subscribe((data)=>{ 
+          if (data === 'success') {     
+            alert("success")
+            this.activeForm = false;
+            this.activeupdatebutton = false
+          }
+          else{
+            this.flag = true       
+          }
+        })
+      } else{
+        this.flag = true
+      }
     }
+
+    
     
   }
 
@@ -107,6 +128,12 @@ deletebook(_id: number ,token:any) {
 }
 
 addform(){
+  this.activeForm = true;
   this.activeAddbutton = true;
+}
+updateform(id:number){
+  this.bookId=id;
+  this.activeForm = true;
+  this.activeupdatebutton = true;
 }
 }
