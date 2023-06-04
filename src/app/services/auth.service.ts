@@ -15,6 +15,7 @@ export class AuthService {
     if (localStorage.getItem('userData') != null) {
       let x:any
       x = localStorage.getItem('userData')
+      x=JSON.parse(x)
       this.currentUsers.next(x);
      }
    }

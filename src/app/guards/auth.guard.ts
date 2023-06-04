@@ -18,7 +18,6 @@ export class AuthGuard implements CanActivate {
     {
       this.authService.currentUsers.subscribe((data:any)=>{
         if (data !=null) {
-          data = JSON.parse(data)
           this.isAdmin=data.isAdmin
         }
       })

@@ -48,7 +48,6 @@ export class AdminBookComponent {
    this.categoryService.getcategories().subscribe((data:any)=>this.category=data.data.categories);
    this.authService.currentUsers.subscribe((data:any)=>{
     if (data !=null) {
-      data = JSON.parse(data)
       this.token=data.token
     }
   })
@@ -130,10 +129,12 @@ deletebook(_id: number ,token:any) {
 addform(){
   this.activeForm = true;
   this.activeAddbutton = true;
+  this.activeupdatebutton = false;
 }
 updateform(id:number){
   this.bookId=id;
   this.activeForm = true;
   this.activeupdatebutton = true;
+  this.activeAddbutton = false;
 }
 }
