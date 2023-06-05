@@ -47,10 +47,6 @@
                                 <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline"><i class="fa-solid fa-pen-to-square mx-2"></i>Authors</span> </a>
                         </li>
                         <li>
-                            <a routerLink="/admin/adminauthor" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline"><i class="fa-solid fa-pen-to-square mx-2"></i>Authors</span> </a>
-                        </li>
-                        <li>
                             <a  class="nav-link px-0 align-middle">
                                 <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline"><i class="fa-solid fa-arrow-right-from-bracket mx-2"></i>logout</span> </a>
                         </li>
@@ -60,33 +56,85 @@
                 </div>
             </div>     
     
-        <div class="col-lg-9 col-md-9 col-sm-9">
+        <div class="col-lg-9 col-md-9 col-sm-9 mx-5">
             <br>
-            <div>
-                <button type="button" class="btn btn-primary add">Add</button>
-            </div>
-           
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Firstname</th>
-                        <th scope="col">Lastname</th>
-                        <th scope="col">Edit</th>
-                        <th scope="col">Delete</th>
+            <div class="row">
+                <div class="container pt-5 text-end pb-3">
+                    <button (click)="addform()" class="btn btn-primary text-white">Add book</button>
+                  </div>
+                  
+                  <form *ngIf="activeForm" class="w-75 m-auto py-5"  [formGroup]="addAuthor" (ngSubmit)="add(addAuthor , token )" enctype="multipart/form-data">
+                      
+                    <div class="form-group my-2">
+                        <label>firstName</label>
+                        <input [class.is-valid]="addAuthor.get('firstName')?.errors ==null && addAuthor.get('firstName')?.touched"
+                        formControlName='firstName' type="text" class="form-control">
+                        <p *ngIf="addAuthor.get('firstName')?.errors !=null && addAuthor.get('firstName')?.touched"
+                        class="py-2 text-danger">inValid</p>
+                    </div>
+                    <div class="form-group my-2">
+                        <label>lastName</label>
+                        <input [class.is-valid]="addAuthor.get('lastName')?.errors ==null && addAuthor.get('lastName')?.touched"
+                        formControlName='lastName' type="text" class="form-control">
+                        <p *ngIf="addAuthor.get('lastName')?.errors !=null && addAuthor.get('lastName')?.touched"
+                        class="py-2 text-danger">inValid</p>
+                    </div>
+                    <div class="form-group my-2">
+                      <label>photo</label>
+                      <input [class.is-valid]="addAuthor.get('photo')?.errors ==null && addAuthor.get('photo')?.touched"
+                      formControlName='photo' type="file" (change)="onFileSelected($event)" class="form-control">
+                    </div>
+                    <div class="form-group my-2">
+                        <label>Date Of Birth</label>
+                        <input [class.is-valid]="addAuthor.get('dob')?.errors ==null && addAuthor.get('dob')?.touched"
+                        formControlName='dob' type="date" class="form-control">
+                        <p *ngIf="addAuthor.get('dob')?.errors !=null && addAuthor.get('dob')?.touched"
+                        class="py-2 text-danger">inValid</p>
+                    </div>
+                    <div class="form-group my-2">
+                        <label>brief</label>
+                        <input [class.is-valid]="addAuthor.get('brief')?.errors ==null && addAuthor.get('brief')?.touched"
+                        formControlName='brief' type="text" class="form-control">
+                        <p *ngIf="addAuthor.get('brief')?.errors !=null && addAuthor.get('brief')?.touched"
+                        class="py-2 text-danger">inValid</p>
+                    </div>
+            
+            
+            
+                    <button [disabled]="addAuthor.invalid" type="submit" class="btn btn-danger text-white my-2" *ngIf="activeAddbutton">Add</button>
+                    <button [disabled]="addAuthor.invalid" type="submit" class="btn btn-danger text-white my-2" *ngIf="activeupdatebutton">update</button>
+                </form>
+
+
+                <table class="table table-bordered text-center">
+                  <thead>
+                    <tr class="text-center">
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Image</th>
+                      <th>Date of Birth</th>
+                      <th>Brief</th>
+                      <th>edit</th>
+                      <th>delete</th>
                     </tr>
-                </thead>
-                <tbody>
+                  </thead>
+                  <tbody >
                     <tr *ngFor="let row of author">
-                        <td>{{row.firstName}}</td>
-                        <td>{{row.lastName}}</td>
-                        <td><button type="button" class="btn btn-secondary">Edit</button></td>
-                        <td><button type="button" class="btn btn-danger" (click)="deleteAuthor(row._id,token)">Delete</button></td>
-        
+                      <td>{{row.firstName}}</td>
+                      <td>{{row.lastName}}</td>
+                      <td><img [src]="'http://localhost:5000/src/assets/images/authors/'+row.photo" [alt]="row.firstName" class="author-image"></td>
+                      <td>{{row.dob}}</td>
+                      <td>{{row.brief}}</td>
+                      <td class="text-center">
+                        <button (click)="updateform(row._id)" class="btn btn-secondary ">Edit</button>
+                      </td>
+                      <td class="text-center">
+                        <button (click)="deleteAuthor(row._id)" class="btn btn-danger m-2">Delete</button>
+                      </td>
                     </tr>
-        
-                </tbody>
-            </table>
-        </div>
+                  </tbody>
+                </table>
+            </div>
         <div class="col py-3 w-50">
             <router-outlet></router-outlet>
            </div>

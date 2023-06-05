@@ -11,10 +11,6 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { CategoryComponent } from './category/category.component';
 import { AuthorsComponent } from './authors/authors.component';
 import { AuthorDetailsComponent } from './author-details/author-details.component';
-import { AuthorComponent } from './admin/author/author.component';
-import { HomeComponent } from './admin/home/home.component';
-import { AuthorUpdateComponent } from './admin/author-update/author-update.component';
-import { AuthorAddComponent } from './admin/author-add/author-add.component';
 import { AdminBookComponent } from './admin-book/admin-book.component';
 import { AdminCategoryComponent } from './admin-category/admin-category.component';
 import { CategorybooksComponent } from './categorybooks/categorybooks.component';
@@ -94,34 +90,6 @@ const routes: Routes = [
     path:'search',
     component: SearchComponent
   },
-
-
-    //children: [
-
-      {
-
-        path: 'admin/adminauthor',
-        //canActivate:[AuthGuard],
-        component: AuthorComponent,
-
-      },
-      {
-        path: 'update/:id',
-        //canActivate:[AuthGuard],
-        component:AuthorUpdateComponent,
-      },
-      {
-        path: 'author/add',
-        //canActivate:[AuthGuard],
-        component:AuthorAddComponent,
-      },
-      {
-        path: '**',
-        component: NotfoundComponent
-      },
-
-    //]
-
   {
     path: '**',
     component: NotfoundComponent
