@@ -14,7 +14,7 @@ export class BookDetailsComponent {
 
   constructor(private route:ActivatedRoute , private bookService:BooksService){}
 
-  ngOnInit(): void {
+  ngOnInit(){
     this.route.params.subscribe(params=>this.id=params['id']);
 
     this.bookService.getBookDetails(this.id).subscribe((res:any)=>this.book=res.data.book)

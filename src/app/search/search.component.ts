@@ -14,10 +14,6 @@ word!:string
 
   searchBooks(searchTerm: string){
     this.books = [];
-    console.log(searchTerm);
-    this.book.searchBooks(searchTerm).subscribe((books: any) => {
-      this.books = books.data.respons;
-      console.log (books.data.respons);
-    });
+    this.book.searchBooks(searchTerm).subscribe((books: any) =>this.books = books.data.respons);
   }
 }

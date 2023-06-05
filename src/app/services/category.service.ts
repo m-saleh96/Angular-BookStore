@@ -14,9 +14,27 @@ export class CategoryService {
   getcategories() {
     return this.http.get('http://127.0.0.1:5000/category');
   }
+
+
+  createCategory(data:any , token:any) {
+    const headers = new HttpHeaders({
+      'Authorization' : `Bearer ${token}` 
+    })
+    return this.http.post('http://127.0.0.1:5000/category' , data , {headers});
+  }
+
+
+  updateCategory(formData:any , token:any , id:any) {
+      const headers = new HttpHeaders({
+      'Authorization' : `Bearer ${token}` 
+    })
+    return this.http.put('http://127.0.0.1:5000/category/'+id , formData , {headers});
+  }
+
+
   deletecategory(_id:number, token:any) {
     const headers = new HttpHeaders({
-      'Authorization' : token
+      'Authorization' : `Bearer ${token}`
     })
     return this.http.delete(('http://127.0.0.1:5000/category/'+_id), {headers}); 
 }

@@ -3,12 +3,12 @@
     <div class="row">
 
         <p *ngIf="books.length===0">books are not found</p>
-        <div class="col-lg-4 col-md-4 col-sm-12 bb" *ngFor="let book of books">
-            <img [src]="book?.photo" alt="" width="100%">
+        <div class="col-lg-4 col-md-4 col-sm-12 bb text-center py-5" *ngFor="let book of books">
+            <img [src]="'http://localhost:5000/src/assets/images/books/'+book?.photo" alt="" width="90%">
             <div class="big text-center">
-                <h4>{{book?.title}}</h4>
-                <p class="name">{{book.name}}</p>
-                <p>lead secondFontColor">{{book?.desc}}</p>
+                <h3 class="text-primary">{{book?.name}}</h3>
+                <h4 class="text-danger">{{book?.title}}</h4>
+                <p>{{book?.desc}}</p>
             </div>
         </div>
     </div>

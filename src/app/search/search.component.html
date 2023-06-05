@@ -2,7 +2,7 @@
 <div class="container">
   <form action="">
 
-    <input type="text"  class="form-control search-input" name="search" placeholder="Search.." aria-label="search" aria-describedby="addon-wrapping"[(ngModel)]="word">
+    <input type="text"  class="form-control search-input w-75" name="search" placeholder="Search.." aria-label="search" aria-describedby="addon-wrapping"[(ngModel)]="word">
     <button type="submit" class="btn btn-primary search-btn" (click)="searchBooks(word)">Submit</button>
 </form>
     <div class="row">
@@ -18,9 +18,9 @@
             <tbody>
               <tr *ngFor="let book of books">
 
-                <td>{{book.name}}</td>
-                <td>{{book.category.fullname}}</td>
-                <td>{{book.author.firstName}} {{book.author.lastName}}</td>
+                <td>{{book?.name}}</td>
+                <td>{{book?.category.fullname}}</td>
+                <td>{{book?.author.firstName}} {{book.author.lastName}}</td>
               </tr>
             </tbody>
           </table>

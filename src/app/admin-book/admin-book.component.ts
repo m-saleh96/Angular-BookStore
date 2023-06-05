@@ -104,32 +104,6 @@ add(addBook:any , token:any)
     }
   }
 
-// nextPage(){
-//   this.page ++
-//   this.bookservice.getBook(this.page).subscribe((res:any)=>{
-//       if((res.data.books.length==0)){
-//         this.page --               
-//       } else {
-//         this.book = res.data.books
-//       }           
-//   })
-// }
-
-
-
-// prevPage(){
-//   this.page --
-//   console.log(this.page);
-//   this.bookservice.getBook(this.page).subscribe((res:any)=>{
-//       if((this.page==0)){
-//         console.log(this.page);
-        
-//         this.page ++ 
-//       } else {
-//         this.book = res.data.books
-//       }           
-//   })
-// }
 
 
 deletebook(_id: number ,token:any) {
