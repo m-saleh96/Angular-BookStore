@@ -24,7 +24,7 @@ export class BooksService {
     const headers = new HttpHeaders({
       'Authorization' : `Bearer ${token}` 
     })
-    return this.http.post(`http://127.0.0.1:5000/book/${id}` , data , {headers})
+    return this.http.put(`http://127.0.0.1:5000/book/${id}` , data , {headers})
   }
 
   getBookDetails(id:number){
@@ -40,6 +40,9 @@ export class BooksService {
   }
   getbooks() {
     return this.http.get('http://127.0.0.1:5000/book'); 
+  }
+  getAllbooks() {
+    return this.http.get('http://127.0.0.1:5000/books'); 
   }
 
   deletebook(_id:number , token:any) {

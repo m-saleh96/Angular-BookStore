@@ -49,10 +49,18 @@ export class AuthService {
   }
   deleteAuthor(_id:string, token : any) {
 
-    const headers = {
-      authorization: token
-    }
+    const headers = new HttpHeaders({
+      'Authorization' : `Bearer ${token}` 
+    })
     return this.http.delete('http://127.0.0.1:5000/author/'+_id, {headers});
+  }
+
+
+  getProfile(id:number ,token:any){
+    const headers = new HttpHeaders({
+      'Authorization' : `Bearer ${token}` 
+    })
+    return this.http.get('http://127.0.0.1:5000/users/'+id, {headers})
   }
 
 

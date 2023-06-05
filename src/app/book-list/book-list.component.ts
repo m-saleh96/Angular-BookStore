@@ -12,7 +12,12 @@ export class BookListComponent {
   page:number =1;
   constructor(private bookService:BooksService){}
   ngOnInit(){
-    this.bookService.getBook(1).subscribe((res:any)=>this.books = res.data.books)
+    this.bookService.getBook(1).subscribe((res:any)=>{
+      
+      
+      this.books = res.data.books
+      console.log(this.books);
+    })
   }
 
   pageNumber(number:number){

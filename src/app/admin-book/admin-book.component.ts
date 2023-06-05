@@ -44,7 +44,7 @@ export class AdminBookComponent {
      private router:Router , private authorService:AuthorsService , private categoryService:CategoryService , private formBuilder:FormBuilder , private http:HttpClient){}
 
   ngOnInit(){
-   this.bookservice.getbooks().subscribe((res:any)=>this.book=res.data.books);
+   this.bookservice.getAllbooks().subscribe((res:any)=>this.book=res.data.books);
    this.authorService.getAuthors().subscribe((data:any)=>this.author=data.data.authors);
    this.categoryService.getcategories().subscribe((data:any)=>this.category=data.data.categories);
    this.authService.currentUsers.subscribe((data:any)=>{
@@ -68,79 +68,68 @@ add(addBook:any , token:any)
         formData.append('photo', this.selectedFile);
   
         // Send the formData to the server using HttpClient
-        this.bookservice.addBook(formData , token).subscribe((data)=>{ 
-              if (data === 'success') {     
-                alert("success")
+        this.bookservice.addBook(formData , token).subscribe((data:any)=>{ 
+              if (data.status === 'success') {     
                 this.activeForm = false;
                 this.activeAddbutton = false
+                alert("success")
               }
               else{
                 this.flag = true       
-              }})
-
-
-        
+              }}) 
       }
-    
 
-
-      // if(addBook.valid == true){
-      //   this.bookservice.addBook(addBook.value , token).subscribe((data)=>{ 
-      //     if (data === 'success') {     
-      //       alert("success")
-      //       this.activeForm = false;
-      //       this.activeAddbutton = false
-      //     }
-      //     else{
-      //       this.flag = true       
-      //     }
-      //   })
-      // } else{
-      //   this.flag = true
-      // }
     } else if(this.activeupdatebutton){
-      if(addBook.valid == true){
-        this.bookservice.updataBook(addBook.value , token , this.bookId).subscribe((data)=>{ 
-          if (data === 'success') {     
-            alert("success")
-            this.activeForm = false;
-            this.activeupdatebutton = false
-          }
-          else{
-            this.flag = true       
-          }
-        })
-      } else{
-        this.flag = true
+      if (this.addBook.valid && this.selectedFile) {
+        const formData = new FormData();
+        formData.append('name', this.addBook.get('name')!.value);
+        formData.append('title', this.addBook.get('title')!.value);
+        formData.append('desc', this.addBook.get('desc')!.value);
+        formData.append('author', this.addBook.get('author')!.value);
+        formData.append('category', this.addBook.get('category')!.value);
+        formData.append('photo', this.selectedFile);
+
+      this.bookservice.updataBook(formData , token , this.bookId).subscribe((data:any)=>{ 
+        console.log(data);
+        
+        if (data.status === 'success') {  
+          this.activeForm = false;
+          this.activeupdatebutton = false
+          alert("Updated")
+        }
+        else{
+          this.flag = true       
+        }})
       }
     }
-
-    
-    
   }
 
-nextPage(){
-  this.page ++
-  this.bookservice.getBook(this.page).subscribe((res:any)=>{
-      if((res.data.books.length==0)){
-        this.page --               
-      } else {
-        this.book = res.data.books
-      }           
-  })
-  
-  
-}
-prevPage(){
-  this.page --
-  this.bookservice.getBook(this.page).subscribe((res:any)=>{
-      if((this.page==0)){
-        this.page ++ 
-      } else {
-        this.book = res.data.books
-      }           
-  })
-}
+// nextPage(){
+//   this.page ++
+//   this.bookservice.getBook(this.page).subscribe((res:any)=>{
+//       if((res.data.books.length==0)){
+//         this.page --               
+//       } else {
+//         this.book = res.data.books
+//       }           
+//   })
+// }
+
+
+
+// prevPage(){
+//   this.page --
+//   console.log(this.page);
+//   this.bookservice.getBook(this.page).subscribe((res:any)=>{
+//       if((this.page==0)){
+//         console.log(this.page);
+        
+//         this.page ++ 
+//       } else {
+//         this.book = res.data.books
+//       }           
+//   })
+// }
 
 
 deletebook(_id: number ,token:any) {
@@ -160,6 +149,8 @@ addform(){
 }
 updateform(id:number){
   this.bookId=id;
+  console.log(this.bookId);
+  
   this.activeForm = true;
   this.activeupdatebutton = true;
   this.activeAddbutton = false;

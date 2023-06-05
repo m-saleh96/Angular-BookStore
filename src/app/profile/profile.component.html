@@ -22,10 +22,7 @@
             <img src="https://imdezcode.files.wordpress.com/2020/02/imdezcode-logo.png" alt="" width="100" height="100">
 
             <div class="name">
-                ImDezCode
-            </div>
-            <div class="job">
-                Web Developer
+                {{user?.fullname}}
             </div>
         </div>
 
@@ -49,17 +46,17 @@
                         <tr>
                             <td>Name</td>
                             <td>:</td>
-                            <td>ImDezCode</td>
+                            <td>{{user?.fullname}}</td>
                         </tr>
                         <tr>
                             <td>Email</td>
                             <td>:</td>
-                            <td>imdezcode@gmail.com</td>
+                            <td>{{user?.email}}</td>
                         </tr>
                         <tr>
                             <td>Role</td>
                             <td>:</td>
-                            <td>Admin , user</td>
+                            <td>{{user?.role}}</td>
                         </tr>
                     </tbody>
                 </table>

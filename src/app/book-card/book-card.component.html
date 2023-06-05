@@ -1,5 +1,5 @@
 <div class="card card-border">
-    <img [src]="book?.photo"  class="card-img-top" alt="..." (click)="redirectToBook(book._id)" height="420px">
+    <img [src]="'http://localhost:5000/src/assets/images/books/'+ book?.photo"  class="card-img-top" alt="..." (click)="redirectToBook(book._id)" height="420px">
     <div class="card-body">
     <h4 class="card-title text-danger">{{book?.name}}</h4>
     <p class="card-text">{{book?.title}}</p>
