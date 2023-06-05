@@ -55,10 +55,12 @@
                         class="py-2 text-danger">inValid</p>
                     </div>
                     <div class="form-group my-2">
-                      <label>photo</label>
-                      <input [class.is-valid]="addAuthor.get('photo')?.errors ==null && addAuthor.get('photo')?.touched"
-                      formControlName='photo' type="file" (change)="onFileSelected($event)" class="form-control">
-                    </div>
+                      <label>brief</label>
+                      <input [class.is-valid]="addAuthor.get('brief')?.errors ==null && addAuthor.get('brief')?.touched"
+                      formControlName='brief' type="text" class="form-control">
+                      <p *ngIf="addAuthor.get('brief')?.errors !=null && addAuthor.get('brief')?.touched"
+                      class="py-2 text-danger">inValid</p>
+                  </div>
                     <div class="form-group my-2">
                         <label>Date Of Birth</label>
                         <input [class.is-valid]="addAuthor.get('dob')?.errors ==null && addAuthor.get('dob')?.touched"
@@ -67,11 +69,9 @@
                         class="py-2 text-danger">inValid</p>
                     </div>
                     <div class="form-group my-2">
-                        <label>brief</label>
-                        <input [class.is-valid]="addAuthor.get('brief')?.errors ==null && addAuthor.get('brief')?.touched"
-                        formControlName='brief' type="text" class="form-control">
-                        <p *ngIf="addAuthor.get('brief')?.errors !=null && addAuthor.get('brief')?.touched"
-                        class="py-2 text-danger">inValid</p>
+                      <label>photo</label>
+                      <input [class.is-valid]="addAuthor.get('photo')?.errors ==null && addAuthor.get('photo')?.touched"
+                      formControlName='photo' type="file" (change)="onFileSelected($event)" class="form-control">
                     </div>
             
             
